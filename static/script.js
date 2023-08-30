@@ -1,169 +1,85 @@
-document.getElementById("oldName").onchange = changeListener;
+// Your JSON data
+const partsData = [
+    {
+      "name": "Resistor",
+      "footprint": "0805",
+      "value": "10kΩ",
+      "rating": "1/4W"
+    },
+    {
+      "name": "Capacitor",
+      "footprint": "1206",
+      "value": "1µF",
+      "rating": "16V"
+    },
+    {
+      "name": "Transistor",
+      "footprint": "SOT-23",
+      "value": "2N3904",
+      "rating": "200mA, 40V"
+    },
+    {
+      "name": "Diode",
+      "footprint": "DO-214AC",
+      "value": "1N4148",
+      "rating": "100V, 200mA"
+    },
+    {
+      "name": "IC",
+      "footprint": "SOIC-8",
+      "value": "555 Timer",
+      "rating": "50mA, 15V"
+    },
+    {
+      "name": "LED",
+      "footprint": "SMD-0805",
+      "value": "Red",
+      "rating": "2V, 20mA"
+    },
+    {
+      "name": "Inductor",
+      "footprint": "0805",
+      "value": "10µH",
+      "rating": "500mA"
+    },
+    {
+      "name": "Resistor",
+      "footprint": "1206",
+      "value": "220Ω",
+      "rating": "1/4W"
+    },
+    {
+      "name": "Capacitor",
+      "footprint": "0805",
+      "value": "10nF",
+      "rating": "50V"
+    },
+    {
+      "name": "IC",
+      "footprint": "DIP-16",
+      "value": "LM324",
+      "rating": "Low Power Quad Op-Amp"
+    }
+  ];
 
-function changeListener() {
-    var value = this.value
-    console.log(value);
-    
-    const response = fetch('/settings/get', {
-
-        method: 'POST',
-
-        body: JSON.stringify({
-
-            'title': value
-
-        }),
-
-        headers: {
-            'Content-Type': 'application/json',
-        }
-
-    })
-        .then(response => response.json())
-
-        .then(jsonResponse => {
-
-            console.log(jsonResponse)
-            document.getElementById("newName").value = jsonResponse.name;
-            document.getElementById("freq").value = jsonResponse.frequency;
-            document.getElementById("rate").value = jsonResponse.rate;
-            document.getElementById("gain").value = jsonResponse.gain;
-            document.getElementById("samples").value = jsonResponse.samples;
-        })
+// Function to create a list item for a part
+function createPartListItem(part) {
+    const listItem = document.createElement('li');
+    listItem.innerHTML = `
+        <strong>Name:</strong> ${part.name}<br>
+        <strong>Footprint:</strong> ${part.footprint}<br>
+        <strong>Value:</strong> ${part.value}<br>
+        <strong>Rating:</strong> ${part.rating}
+    `;
+    return listItem;
 }
 
+// Get the parts list element
+const partsList = document.getElementById('parts-list');
 
-
-function changeBandSettings() {
-    // get form data as FormData object
-    const formData = new FormData(document.getElementById("bandForm"));
-
-    // convert FormData object to JSON string
-    const json = JSON.stringify(Object.fromEntries(formData));
-
-    const response = fetch('/settings/set', {
-
-        method: 'POST',
-
-        body: json,
-
-        headers: {
-            'Content-Type': 'application/json',
-        }
-
-    })
-        .then(response => response.json())
-
-        .then(jsonResponse => {
-
-
-
-        })
-}
-
-
-//0: log data, 1: reset data, 2: email data
-function logData(type) {
-    color = document.getElementById("dataRow").style.backgroundColor;
-    document.getElementById("dataRow").style.backgroundColor = "#454040";
-    const response = fetch('/info/log', {
-
-        method: 'POST',
-
-        body: JSON.stringify({
-
-            'status': type
-
-        }),
-
-        headers: {
-            'Content-Type': 'application/json',
-        }
-
-    })
-        .then(response => response.json())
-
-        .then(jsonResponse => {
-            if (type == 0) {
-                document.getElementById("latency").innerHTML = "Latency: " + jsonResponse.latency + " ms";
-                document.getElementById("UL").innerHTML = "Upload: " + jsonResponse.UL + " Mbps";
-                document.getElementById("DL").innerHTML = "Download: " + jsonResponse.DL + " Mbps";
-            }
-
-            document.getElementById("dataRow").style.backgroundColor = color;
-        })
-}
-
-
-function getNetwork() {
-    color = document.getElementById("networkStats").style.backgroundColor;
-    document.getElementById("networkStats").style.backgroundColor = "#454040";
-    const response = fetch('/info/networkStats', {
-
-        method: 'POST',
-
-        body: JSON.stringify({
-
-            'status': 1
-
-        }),
-
-        headers: {
-            'Content-Type': 'application/json',
-        }
-
-    })
-        .then(response => response.json())
-
-        .then(jsonResponse => {
-            document.getElementById("latency").innerHTML = "Latency: " + jsonResponse.latency + " ms";
-            document.getElementById("UL").innerHTML = "Upload: " + jsonResponse.UL + " Mbps";
-            document.getElementById("DL").innerHTML = "Download: " + jsonResponse.DL + " Mbps";
-            document.getElementById("networkStats").style.backgroundColor = color;
-
-        })
-
-}
-
-function shutdownServer() {
-    ocument.getElementsByTagName("html")[0].innerHTML
-}
-
-function loadPage() {
-    fetch('another-page.html')
-        .then(response => response.text())
-        .then(html => {
-            document.open();
-            document.write(html);
-            document.close();
-        });
-}
-
-function getBandPower(button) {
-    callerID = button.id;
-    color = document.getElementById("bandBox").style.backgroundColor;
-    document.getElementById("bandBox").style.backgroundColor = "#454040";
-
-    const response = fetch('/info/bandPower', {
-
-        method: 'POST',
-
-        body: JSON.stringify({
-
-            'bandNum': callerID
-
-        }),
-
-        headers: {
-            'Content-Type': 'application/json',
-        }
-
-    })
-        .then(response => response.json())
-
-        .then(jsonResponse => {
-            document.getElementById(jsonResponse.name).innerHTML = jsonResponse.name + ": " + jsonResponse.power + " dBm";
-            document.getElementById("bandBox").style.backgroundColor = color;
-        })
-
-}
+// Loop through the parts data and create list items
+partsData.forEach(part => {
+    const listItem = createPartListItem(part);
+    console.log('hi');
+    partsList.appendChild(listItem);
+});
