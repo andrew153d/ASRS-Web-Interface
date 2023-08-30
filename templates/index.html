@@ -8,13 +8,25 @@
   <link rel="stylesheet" href="../static/bootstrap.min.css">
   <link rel="stylesheet" href="../static/styles.css">
   <link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap" rel="stylesheet">
-  <title>5G Gateway</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap" rel="stylesheet">
+  <title>ASRS web controller</title>
 
 </head>
 
 <body>
-  <div class="container" width>
-    
+  <div class="container">
+    <div class="vertical-menu">
+      <div id="logo-container">
+        <img src="../static/images/logo.png" alt="logo" id="logo" />
+      </div>
+      <button type="button" class="menu-button">Home</button>
+      <button type="button" class="menu-button">Browse</button>
+      <button type="button" class="menu-button">Add Part</button>
+      <button type="button" class="menu-button">Home</button>
+    </div>
+    <div class="right-div">Right Div</div>
   </div>
 
   <script type="text/javascript" src="{{ url_for('static', filename='script.js') }}"></script>

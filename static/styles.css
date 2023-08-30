@@ -2,6 +2,63 @@
   --text: #d4d4d4;
   --dominant:#333333;
   --secondary: #1D7546;
-  --accent: #C1B051;
+  --secondary_highlight: #328b5d;
+  --accent: #C1B052;
 
+}
+
+body{
+  background-color: var(--dominant);
+  color: var(--text);
+  font-size: 1.5em;
+}
+
+#logo
+{
+  width: 80%;
+
+}
+
+#logo-container {
+  width: 100%;
+  text-align: center;
+  padding-top: 12px;
+}
+
+.container {
+  padding: 0px;
+  width: 100%;
+  overflow: hidden; /* Clear the float */
+}
+
+.vertical-menu
+{
+  width: 15%;
+  height: 100vh;
+  background-color: var(--secondary);
+  float: left;
+}
+
+.menu-button {
+  border: none;
+  color: var(--accent);
+  background-color: var(--secondary);
+  padding: 15px 32px;
+  width: 100%;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-family: "Oswald", serif;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.menu-button:hover {
+  background-color: var(--secondary_highlight);
+  color: var(--dominant);
+}
+
+.right-div {
+  width: 50%;
+  float: left;
 }
