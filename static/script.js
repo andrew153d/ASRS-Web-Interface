@@ -66,9 +66,9 @@ const partsData = [
 function createPartListItem(part) {
     const listItem = document.createElement('li');
     listItem.innerHTML = `
-        <strong>Name:</strong> ${part.name}<br>
-        <strong>Footprint:</strong> ${part.footprint}<br>
-        <strong>Value:</strong> ${part.value}<br>
+        <strong>Name:</strong> ${part.name}
+        <strong>Footprint:</strong> ${part.footprint}
+        <strong>Value:</strong> ${part.value}
         <strong>Rating:</strong> ${part.rating}
     `;
     return listItem;

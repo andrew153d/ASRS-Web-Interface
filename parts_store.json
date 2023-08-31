@@ -1,63 +1,72 @@
 [
-    {
-      "name": "Resistor",
-      "footprint": "0805",
-      "value": "10kΩ",
-      "rating": "1/4W"
-    },
-    {
-      "name": "Capacitor",
-      "footprint": "1206",
-      "value": "1µF",
-      "rating": "16V"
-    },
-    {
-      "name": "Transistor",
-      "footprint": "SOT-23",
-      "value": "2N3904",
-      "rating": "200mA, 40V"
-    },
-    {
-      "name": "Diode",
-      "footprint": "DO-214AC",
-      "value": "1N4148",
-      "rating": "100V, 200mA"
-    },
-    {
-      "name": "IC",
-      "footprint": "SOIC-8",
-      "value": "555 Timer",
-      "rating": "50mA, 15V"
-    },
-    {
-      "name": "LED",
-      "footprint": "SMD-0805",
-      "value": "Red",
-      "rating": "2V, 20mA"
-    },
-    {
-      "name": "Inductor",
-      "footprint": "0805",
-      "value": "10µH",
-      "rating": "500mA"
-    },
-    {
-      "name": "Resistor",
-      "footprint": "1206",
-      "value": "220Ω",
-      "rating": "1/4W"
-    },
-    {
-      "name": "Capacitor",
-      "footprint": "0805",
-      "value": "10nF",
-      "rating": "50V"
-    },
-    {
-      "name": "IC",
-      "footprint": "DIP-16",
-      "value": "LM324",
-      "rating": "Low Power Quad Op-Amp"
-    }
-  ]
-  
+  {
+    "name": "Resistor",
+    "footprint": "0805",
+    "value": "10kΩ",
+    "rating": "1/4W",
+    "bin_number": 123
+  },
+  {
+    "name": "Capacitor",
+    "footprint": "1206",
+    "value": "1µF",
+    "rating": "16V",
+    "bin_number": 456
+  },
+  {
+    "name": "Transistor",
+    "footprint": "SOT-23",
+    "value": "2N3904",
+    "rating": "200mA, 40V",
+    "bin_number": 789
+  },
+  {
+    "name": "Diode",
+    "footprint": "DO-214AC",
+    "value": "1N4148",
+    "rating": "100V, 200mA",
+    "bin_number": 234
+  },
+  {
+    "name": "IC",
+    "footprint": "SOIC-8",
+    "value": "555 Timer",
+    "rating": "50mA, 15V",
+    "bin_number": 567
+  },
+  {
+    "name": "LED",
+    "footprint": "SMD-0805",
+    "value": "Red",
+    "rating": "2V, 20mA",
+    "bin_number": 890
+  },
+  {
+    "name": "Inductor",
+    "footprint": "0805",
+    "value": "10µH",
+    "rating": "500mA",
+    "bin_number": 123
+  },
+  {
+    "name": "Resistor",
+    "footprint": "1206",
+    "value": "220Ω",
+    "rating": "1/4W",
+    "bin_number": 456
+  },
+  {
+    "name": "Capacitor",
+    "footprint": "0805",
+    "value": "10nF",
+    "rating": "50V",
+    "bin_number": 789
+  },
+  {
+    "name": "IC",
+    "footprint": "DIP-16",
+    "value": "LM324",
+    "rating": "Low Power Quad Op-Amp",
+    "bin_number": 234
+  }
+]
