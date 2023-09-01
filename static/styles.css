@@ -1,6 +1,7 @@
 :root {
   --text: #d4d4d4;
-  --dominant:#333333;
+  --dominant:#333333;  
+  --dominant_dark:#222222;
   --secondary: #1D7546;
   --secondary_highlight: #328b5d;
   --accent: #C1B052;
@@ -16,7 +17,6 @@ body{
 #logo
 {
   width: 80%;
-
 }
 
 #logo-container {
@@ -24,13 +24,9 @@ body{
   text-align: center;
   padding-top: 12px;
 }
-
-.container {
-  padding: 0px;
-  width: 100%;
-  overflow: hidden; /* Clear the float */
+#mainBox{
+  display: flex;
 }
-
 .vertical-menu
 {
   width: 15%;
@@ -58,7 +54,26 @@ body{
   color: var(--dominant);
 }
 
-.right-div {
-  width: 50%;
-  float: left;
+.homeHeader{
+  background-color: var(--dominant_dark);
+  font-weight: bold;
+  height: 60px
+}
+.whiteBorder{
+  border: 2px solid #ccc; /* Border style and color */
+  border-radius: 10px; /* Rounded corner radius */
+  padding: 20px; /* Add some padding to the div */
+  height: 200px;
+}
+
+.goldBorder{
+  border: 2px solid var(--accent);
+  border-radius: 10px; /* Rounded corner radius */
+  padding: 20px; /* Add some padding to the div */
+  font-size: 1em;
+}
+
+.subPageContainer {
+  padding: 10px;
+  
 }

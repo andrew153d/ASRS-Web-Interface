@@ -5,7 +5,8 @@
   <meta charset="utf-8">
   <!--<meta http-equiv="refresh" content="5">-->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="../static/bootstrap.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link rel="stylesheet" href="../static/styles.css">
   <link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,20 +17,20 @@
 </head>
 
 <body>
-  <div class="container">
-    <div class="vertical-menu">
-      <div id="logo-container">
-        <img src="../static/images/logo.png" alt="logo" id="logo" />
+  <div>
+    <div id = "mainBox">
+      <div class="vertical-menu">
+        <div id="logo-container">
+          <img src="../static/images/logo.png" alt="logo" id="logo" />
+        </div>
+        <button type="button" class="menu-button" onclick="showHomePage()">Home</button>
+        <button type="button" class="menu-button" onclick="showBrowse()">Browse</button>
+        <button type="button" class="menu-button">Add Part</button>
+        <button type="button" class="menu-button"></button>
       </div>
-      <button type="button" class="menu-button">Home</button>
-      <button type="button" class="menu-button">Browse</button>
-      <button type="button" class="menu-button">Add Part</button>
-      <button type="button" class="menu-button">Home</button>
-    </div>
-    <div class="right-div">
-      <ul id="parts-list">
-        <!-- Parts will be added here -->
-      </ul>
+      <div id="subPage">
+        
+      </div>
     </div>
   </div>
 
