@@ -18,18 +18,18 @@
 
 <body>
   <div>
-    <div id = "mainBox">
-      <div class="vertical-menu">
-        <div id="logo-container">
-          <img src="../static/images/logo.png" alt="logo" id="logo" />
+    <div id="mainBox" class="container">
+      <div class="row">
+        <div class="vertical-menu col-2">
+          <div id="logo-container">
+            <img src="../static/images/logo.png" alt="logo" id="logo" />
+          </div>
+          <button type="button" class="menu-button" onclick="showHomePage()">Home</button>
+          <button type="button" class="menu-button" onclick="showBrowse()">Browse</button>
+          <button type="button" class="menu-button">Add Part</button>
+          <button type="button" class="menu-button">Load</button>
         </div>
-        <button type="button" class="menu-button" onclick="showHomePage()">Home</button>
-        <button type="button" class="menu-button" onclick="showBrowse()">Browse</button>
-        <button type="button" class="menu-button">Add Part</button>
-        <button type="button" class="menu-button"></button>
-      </div>
-      <div id="subPage">
-        
+        <div id="subPage" class = "col-10"></div>
       </div>
     </div>
   </div>
