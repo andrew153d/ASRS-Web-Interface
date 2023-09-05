@@ -124,4 +124,5 @@ button.list_button:nth-child(even) {
 .listHeader{
   background-color: var(--dominant_dark);
   color: var(--text);
+  border-color: var(--secondary);
 }
