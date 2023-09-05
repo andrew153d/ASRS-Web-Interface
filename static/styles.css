@@ -86,3 +86,42 @@ margin: 0px;
 .subPageContainer {
   padding: 10px;
 }
+
+#parts-list{
+  font-size: small;
+  padding: 0%;
+}
+
+.list_button {
+  background-color: var(--secondary);
+  color: var(--dominant_dark);
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  text-align: center;
+  margin:auto;
+  width: 100%;
+  padding: 0%;
+  white-space: nowrap; /* Prevent text from wrapping */
+  overflow: hidden; /* Hide any overflowing content */
+}
+
+span{
+border: 1px solid var(--accent);
+}
+
+.list_button:hover{
+  border-width: 2px 0px;
+  border-style: solid;
+  border-color: var(--dominant_dark);
+}
+
+
+button.list_button:nth-child(even) {
+  background-color: var(--secondary_highlight );
+}
+
+.listHeader{
+  background-color: var(--dominant_dark);
+  color: var(--text);
+}
