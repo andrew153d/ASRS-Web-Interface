@@ -126,3 +126,57 @@ button.list_button:nth-child(even) {
   color: var(--text);
   border-color: var(--secondary);
 }
+
+.col-lg-2{
+  padding:0%
+}
+
+.part_list_header{
+  margin: 10px 0px;
+}
+
+.part_list_header_button{
+  display: flex;
+}
+
+.part_list_header > .row  > :first-child> button{
+  border-top-left-radius: 10px;
+}
+.part_list_header > .row  > :last-child> button{
+  border-top-right-radius: 10px;
+}
+
+
+.part_list_header_button > button{
+  margin:0px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border: none;
+  background-color: var(--secondary);
+  border: 2px solid var(--dominant);
+  color: var(--dominant);
+  width:100%;
+  font-weight:bold;
+  font-size:0.8em;
+}
+
+.part_list_header_button > button:hover{
+  
+  background-color: var(--dominant);
+  border: 2px solid var(--secondary);
+  color: var(--secondary);
+}
+
+#part_search_form{
+  width: 100%;
+  font-size: 0.8em;
+  margin: 0px;
+}
+
+#part_search{
+  width: 100%;
+  border: 2px solid var(--secondary);
+  background-color: transparent;
+  color:var(--text);
+}
