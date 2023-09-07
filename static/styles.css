@@ -132,7 +132,7 @@ button.list_button:nth-child(even) {
 }
 
 .part_list_header{
-  margin: 10px 0px;
+  padding: 0px 10px 0px 10px;
 }
 
 .part_list_header_button{
@@ -171,11 +171,12 @@ button.list_button:nth-child(even) {
 #part_search_form{
   width: 100%;
   font-size: 0.8em;
-  margin: 0px;
+  margin: 10px 0px;
 }
 
 #part_search{
   width: 100%;
+  border-radius: 2px;
   border: 2px solid var(--secondary);
   background-color: transparent;
   color:var(--text);
