@@ -4,7 +4,7 @@
   --dominant_dark:#222222;
   --secondary: #C1B052;
   --secondary_highlight: #9c8d36;
-  --accent: #0d3e24;
+  --accent: #444444;
 
 }
 
@@ -25,16 +25,23 @@ body{
   text-align: center;
   padding-top: 12px;
 }
-#mainBox{
-width: 100vw;
-margin: 0px;
-}
-.vertical-menu
+
+
+#vertical-menu
 {
   height: 100vh;
   background-color: var(--dominant_dark);
-  float: left;
+  position: fixed;
   padding: 0px;
+  display: inline-block;
+  width:15%;
+}
+
+#subPage{
+  margin-left:15%;
+  padding:20px;
+  width:85%;
+  display: inline-block;
 }
 
 .menu-button {
@@ -65,21 +72,18 @@ margin: 0px;
   height: 60px
 }
 .whiteBorder{
-  border: 2px solid var(--accent); /* Border style and color */
-  border-radius: 10px; /* Rounded corner radius */
-  padding: 20px; /* Add some padding to the div */
+  border: 2px solid var(--secondary); /* Border style and color */
+  border-radius: 10px;
+  padding: 20px;
   height: 200px;
   background-color: var(--dominant_dark);
 }
 
-#subPage{
-  padding:0px;
-}
 
 .goldBorder{
   border: 2px solid var(--secondary);
-  border-radius: 10px; /* Rounded corner radius */
-  padding: 20px; /* Add some padding to the div */
+  border-radius: 10px;
+  padding: 20px;
   font-size: 1em;
 }
 
@@ -159,6 +163,7 @@ button.list_button:nth-child(even) {
   width:100%;
   font-weight:bold;
   font-size:0.8em;
+  min-height: 50px;
 }
 
 .part_list_header_button > button:hover{
