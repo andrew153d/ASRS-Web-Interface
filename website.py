@@ -97,6 +97,14 @@ def findPartByID(partID):
             return part
     return ""
 
+def findParIndextByID(partID):
+    with open("parts_store.json", "r") as json_file:
+            part_data = json.load(json_file)
+    for i in range(len(part_data)):
+        if(part_data[i]["ID"] == partID):
+            return i
+    return -1
+
 # button coming from log section of website
 @app.route("/getPart", methods=["POST"])
 def log():
@@ -110,12 +118,22 @@ def log():
     p = findPartByID(requestDict["partID"])
     return p
 
-# button coming from log section of website
+def updateJson(part):
+    index = findParIndextByID(part["ID"])
+    with open("parts_store.json", "r") as json_file:
+        part_data = json.load(json_file)
+    json_file.close()
+    part_data[index] = part
+    print(part)
+    with open("parts_store.json", "w") as json_file:
+        json.dump(part_data, json_file, indent=4)
+        
+
 @app.route("/savePart", methods=["POST"])
 def ldog():
     requestDict = request.get_json()
-    print(requestDict)
-    return jsonify({"empty": 1})
+    updateJson(requestDict)
+    return jsonify({"return": 1})
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)

@@ -21,16 +21,6 @@ function showBrowse(part) {
     .then(html => {
       //const partsArray = JSON.parse(getPartList());
       subPage.innerHTML = html;
-      // const partsList = document.getElementById('parts-list');
-      // // Loop through the parts data and create list items
-      // const listItem = createPartListHeader();
-      // partsList.appendChild(listItem);
-      // partsArray.forEach(part => {
-      //   const listItem = createPartListItem(part);
-      //   partsList.appendChild(listItem);
-      // });
-      // const jsonArray = JSON.parse(partsData);
-      // loadPartModifiers(jsonArray[0]);
 
     });
 
@@ -114,16 +104,21 @@ function loadPartModifiers(id) {
     })
 }
 
+function updateJson(part){
+  
+}
+
 function savePart(){
   var formContainer = document.getElementById("part_forms");
   const forms = formContainer.getElementsByTagName('form');
-  const result = [];
+  const result = {"ID":"0"};
   for (const form of forms) {
     const inputs = form.getElementsByTagName('input');
     
     for (const input of inputs) {
       console.log(`Name: ${input.name}, Value: ${input.value}`);
-      result.push({ name: input.name, value: input.value });
+      //result.push({ name: input.name, value: input.value });
+      result[input.name] = input.value;
     }
   }
   console.log(result);
@@ -141,8 +136,8 @@ function savePart(){
     .then(response => response.json())
     .then(jsonResponse => {
       console.log(jsonResponse);
+      updateJson(jsonResponse);
     })
-
 }
 
 

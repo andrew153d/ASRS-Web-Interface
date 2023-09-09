@@ -1,58 +1,58 @@
 [
-  {
-    "ID": "1",
-    "Name": "Resistor",
-    "Footprint": "0805",
-    "Value": "10kΩ",
-    "Rating": "1/4W"
-  },
-  {
-    "ID": "2",
-    "Name": "Capacitor",
-    "Footprint": "1206",
-    "Value": "1µF",
-    "Rating": "16V"
-  },
-  {
-    "ID": "3",
-    "Name": "Transistor",
-    "Footprint": "SOT-23",
-    "Value": "2N3904",
-    "Rating": "200mA, 40V"
-  },
-  {
-    "ID": "4",
-    "Name": "Transistor",
-    "Footprint": "SOT-23",
-    "Value": "2N3904",
-    "Rating": "200mA, 40V"
-  },
-  {
-    "ID": "5",
-    "Name": "Transistor",
-    "Footprint": "SOT-23",
-    "Value": "2N3904",
-    "Rating": "200mA, 40V"
-  },
-  {
-    "ID": "6",
-    "Name": "Transistor",
-    "Footprint": "SOT-23",
-    "Value": "2N3904",
-    "Rating": "200mA, 40V"
-  },
-  {
-    "ID": "7",
-    "Name": "Transistor",
-    "Footprint": "SOT-23",
-    "Value": "2N3904",
-    "Rating": "200mA, 40V"
-  },
-  {
-    "ID": "8",
-    "Name": "Transistor",
-    "Footprint": "SOT-23",
-    "Value": "2N3904",
-    "Rating": "200mA, 40V"
-  }
+    {
+        "ID": "1",
+        "Footprint": "0805",
+        "Name": "Resistor",
+        "Rating": "1/4W",
+        "Value": "10k\u03a9"
+    },
+    {
+        "ID": "2",
+        "Name": "Capacitor",
+        "Footprint": "1206",
+        "Value": "1\u00b5F",
+        "Rating": "16V"
+    },
+    {
+        "ID": "3",
+        "Name": "Transistor",
+        "Footprint": "SOT-23",
+        "Value": "2N3904",
+        "Rating": "200mA, 40V"
+    },
+    {
+        "ID": "4",
+        "Name": "Transistor",
+        "Footprint": "SOT-23",
+        "Value": "2N3904",
+        "Rating": "200mA, 40V"
+    },
+    {
+        "ID": "5",
+        "Name": "Transistor",
+        "Footprint": "SOT-23",
+        "Value": "2N3904",
+        "Rating": "200mA, 40V"
+    },
+    {
+        "ID": "6",
+        "Name": "Transistor",
+        "Footprint": "SOT-23",
+        "Value": "2N3904",
+        "Rating": "200mA, 40V"
+    },
+    {
+        "ID": "7",
+        "Name": "Transistor",
+        "Footprint": "SOT-23",
+        "Value": "2N3904",
+        "Rating": "200mA, 40V"
+    },
+    {
+        "ID": "8",
+        "Name": "Transistor",
+        "Footprint": "SOT-23",
+        "Value": "2N3904",
+        "Rating": "200mA, 40V"
+    }
 ]
