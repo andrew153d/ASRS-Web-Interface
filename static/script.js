@@ -1,195 +1,6 @@
-// Your JSON data
-const partsData = [
-  {
-    "name": "Resistor",
-    "footprint": "0805",
-    "value": "10kΩ",
-    "rating": "1/4W"
-  },
-  {
-    "name": "Capacitor",
-    "footprint": "1206",
-    "value": "1µF",
-    "rating": "16V"
-  },
-  {
-    "name": "Transistor",
-    "footprint": "SOT-23",
-    "value": "2N3904",
-    "rating": "200mA, 40V"
-  },
-  {
-    "name": "Diode",
-    "footprint": "DO-214AC",
-    "value": "1N4148",
-    "rating": "100V, 200mA"
-  },
-  {
-    "name": "IC",
-    "footprint": "SOIC-8",
-    "value": "555 Timer",
-    "rating": "50mA, 15V"
-  },
-  {
-    "name": "LED",
-    "footprint": "SMD-0805",
-    "value": "Red",
-    "rating": "2V, 20mA"
-  },
-  {
-    "name": "Inductor",
-    "footprint": "0805",
-    "value": "10µH",
-    "rating": "500mA"
-  },
-  {
-    "name": "Resistor",
-    "footprint": "1206",
-    "value": "220Ω",
-    "rating": "1/4W"
-  },
-  {
-    "name": "Capacitor",
-    "footprint": "0805",
-    "value": "10nF",
-    "rating": "50V"
-  },
-  {
-    "name": "IC",
-    "footprint": "DIP-16",
-    "value": "LM324",
-    "rating": "Low Power Quad Op-Amp"
-  },
-  {
-    "name": "IC",
-    "footprint": "DIP-16",
-    "value": "LM324",
-    "rating": "Low Power Quad Op-Amp"
-  },
-  {
-    "name": "Inductor",
-    "footprint": "0805",
-    "value": "10µH",
-    "rating": "500mA"
-  },
-  {
-    "name": "Resistor",
-    "footprint": "1206",
-    "value": "220Ω",
-    "rating": "1/4W"
-  },
-  {
-    "name": "Capacitor",
-    "footprint": "0805",
-    "value": "10nF",
-    "rating": "50V"
-  },
-  {
-    "name": "IC",
-    "footprint": "DIP-16",
-    "value": "LM324",
-    "rating": "Low Power Quad Op-Amp"
-  },
-  {
-    "name": "IC",
-    "footprint": "DIP-16",
-    "value": "LM324",
-    "rating": "Low Power Quad Op-Amp"
-  },
-  {
-    "name": "Capacitor",
-    "footprint": "1206",
-    "value": "1µF",
-    "rating": "16V"
-  },
-  {
-    "name": "Transistor",
-    "footprint": "SOT-23",
-    "value": "2N3904",
-    "rating": "200mA, 40V"
-  },
-  {
-    "name": "Diode",
-    "footprint": "DO-214AC",
-    "value": "1N4148",
-    "rating": "100V, 200mA"
-  },
-  {
-    "name": "IC",
-    "footprint": "SOIC-8",
-    "value": "555 Timer",
-    "rating": "50mA, 15V"
-  },
-  {
-    "name": "LED",
-    "footprint": "SMD-0805",
-    "value": "Red",
-    "rating": "2V, 20mA"
-  },
-  {
-    "name": "Inductor",
-    "footprint": "0805",
-    "value": "10µH",
-    "rating": "500mA"
-  },
-  {
-    "name": "Resistor",
-    "footprint": "1206",
-    "value": "220Ω",
-    "rating": "1/4W"
-  },
-  {
-    "name": "Capacitor",
-    "footprint": "0805",
-    "value": "10nF",
-    "rating": "50V"
-  },
-  {
-    "name": "IC",
-    "footprint": "DIP-16",
-    "value": "LM324",
-    "rating": "Low Power Quad Op-Amp"
-  },
-  {
-    "name": "IC",
-    "footprint": "DIP-16",
-    "value": "LM324",
-    "rating": "Low Power Quad Op-Amp"
-  },
-  {
-    "name": "Inductor",
-    "footprint": "0805",
-    "value": "10µH",
-    "rating": "500mA"
-  },
-  {
-    "name": "Resistor",
-    "footprint": "1206",
-    "value": "220Ω",
-    "rating": "1/4W"
-  },
-  {
-    "name": "Capacitor",
-    "footprint": "0805",
-    "value": "10nF",
-    "rating": "50V"
-  },
-  {
-    "name": "IC",
-    "footprint": "DIP-16",
-    "value": "LM324",
-    "rating": "Low Power Quad Op-Amp"
-  },
-  {
-    "name": "IC",
-    "footprint": "DIP-16",
-    "value": "LM324",
-    "rating": "Low Power Quad Op-Amp"
-  }
-];
-
 window.onload = function loadPage() {
   //showHomePage();
+
   showBrowse();
 }
 
@@ -202,50 +13,137 @@ function showHomePage() {
     });
 }
 
-function showBrowse() {
+function showBrowse(part) {
   // Get the parts list element
   const subPage = document.getElementById('subPage');
   fetch('browsePage.html')
     .then(response => response.text())
     .then(html => {
+      //const partsArray = JSON.parse(getPartList());
       subPage.innerHTML = html;
-      const partsList = document.getElementById('parts-list');
-      // Loop through the parts data and create list items
-      const listItem = createPartListHeader();
-      partsList.appendChild(listItem);
-      partsData.forEach(part => {
-        const listItem = createPartListItem(part);
-        partsList.appendChild(listItem);
-      });
+      // const partsList = document.getElementById('parts-list');
+      // // Loop through the parts data and create list items
+      // const listItem = createPartListHeader();
+      // partsList.appendChild(listItem);
+      // partsArray.forEach(part => {
+      //   const listItem = createPartListItem(part);
+      //   partsList.appendChild(listItem);
+      // });
+      // const jsonArray = JSON.parse(partsData);
+      // loadPartModifiers(jsonArray[0]);
+
     });
 
 }
 
-function createPartListItem(part) {
-  const listItem = document.createElement('button');
-  listItem.classList.add("row");
-  listItem.classList.add("list_button");
-  listItem.innerHTML = `
-      <span class="col-3"> ${part.name}</span>
-      <span class="col-3"> ${part.value}</span>
-      <span class="col-3"> ${part.footprint}</span>
-      <span class="col-3"> ${part.rating}</span>
-    `;
-  return listItem;
+function getPartFromServer(id) {
+  const response = fetch('/getPart', {
+
+    method: 'POST',
+
+    body: JSON.stringify({
+
+      'partID': String(id)
+
+    }),
+
+    headers: {
+      'Content-Type': 'application/json',
+    }
+
+  })
+    .then(response => response.json())
+
+    .then(jsonResponse => {
+      //console.log(jsonResponse);
+      return jsonResponse;
+    })
 }
 
-function createPartListHeader() {
-  const listItem = document.createElement('button');
-  listItem.classList.add("row");
-  listItem.classList.add("list_button");
-  listItem.classList.add("listHeader");
-  listItem.innerHTML = `
-      <span class="col-3"><strong>Name</strong></span>
-      <span class="col-3"><strong>Value</strong></span>
-      <span class="col-3"><strong>Footprint</strong></span>
-      <span class="col-3"><strong>Rating</strong></span>
-    `;
-  return listItem;
+function deleteProperty(obj, propertyName) {
+  if (obj.hasOwnProperty(propertyName)) {
+    delete obj[propertyName];
+    return true; // Property was deleted successfully
+  } else {
+    return false; // Property does not exist in the object
+  }
 }
+
+function createPartDetailsForm(part, field){
+  return `<div class="row">
+  <div class="col-12">
+    <form class = "part_details_form">
+      <label for="${field}_input">${field}</label>
+      <input type="text" id="${field}_input" name="${field}" value = "${part[field]}"> 
+    </form>
+  </div>
+</div>`
+}
+
+function loadPartModifiers(id) {
+
+  const response = fetch('/getPart', {
+
+    method: 'POST',
+
+    body: JSON.stringify({
+
+      'partID': String(id)
+
+    }),
+
+    headers: {
+      'Content-Type': 'application/json',
+    }
+
+
+
+  })
+    .then(response => response.json())
+
+    .then(jsonResponse => {
+      var part = jsonResponse;
+      console.log(typeof(part));
+      var modifiers = document.getElementById('part_forms');
+      modifiers.innerHTML = '';
+      modifiers.innerHTML += createPartDetailsForm(part, "ID");
+      deleteProperty(part, "ID");
+      for (const field in part) {
+        modifiers.innerHTML += createPartDetailsForm(part, field);
+      }
+    })
+}
+
+function savePart(){
+  var formContainer = document.getElementById("part_forms");
+  const forms = formContainer.getElementsByTagName('form');
+  const result = [];
+  for (const form of forms) {
+    const inputs = form.getElementsByTagName('input');
+    
+    for (const input of inputs) {
+      console.log(`Name: ${input.name}, Value: ${input.value}`);
+      result.push({ name: input.name, value: input.value });
+    }
+  }
+  console.log(result);
+
+  const response = fetch('/savePart', {
+
+    method: 'POST',
+
+    body: JSON.stringify(result),
+
+    headers: {
+      'Content-Type': 'application/json',
+    }
+  })
+    .then(response => response.json())
+    .then(jsonResponse => {
+      console.log(jsonResponse);
+    })
+
+}
+
 
 

@@ -141,6 +141,7 @@ button.list_button:nth-child(even) {
 
 .part_list_header_button{
   display: flex;
+  padding:0%;
 }
 
 .part_list_header > .row  > :first-child> button{
@@ -173,6 +174,14 @@ button.list_button:nth-child(even) {
   color: var(--secondary);
 }
 
+
+.part_list_header_button > button:active{
+  
+  background-color: var(--accent);
+  border: 2px solid var(--secondary);
+  color: var(--secondary);
+}
+
 #part_search_form{
   width: 100%;
   font-size: 0.8em;
@@ -185,4 +194,29 @@ button.list_button:nth-child(even) {
   border: 2px solid var(--secondary);
   background-color: transparent;
   color:var(--text);
+}
+
+.part_details_form{
+  width: 100%;
+  font-size: 0.8em;
+  margin: 1px 0px;
+  padding:0%;
+}
+.part_details_form > label{
+  width:100%;
+  margin: 0px;
+  text-align: center;
+  font-weight: bold;
+  color: var(--secondary);
+}
+
+.part_details_form > input{
+  width: 100%;
+  padding:2px;
+  margin: 0px;
+  border-radius: 2px;
+  border: 2px solid var(--secondary);
+  background-color: transparent;
+  color:var(--text);
+  font-weight: bold;
 }

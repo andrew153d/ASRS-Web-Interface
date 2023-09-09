@@ -46,23 +46,25 @@
         <input type="text" id="part_search" name="fname">
       </form>
       <div class="container" id="parts-list">
+        {{part_list}}
       </div>
     </div>
     <div class="col-4 goldBorder">
       <div id="part_entry" class="container part_list_header">
         <div class="row">
           <div class="col-6  part_list_header_button">
-            <button type="button" class="noMargin">
-              delete
+            <button type="button" class="noMargin" onclick="savePart()">
+              Save
             </button>
           </div>
           <div class="col-6  part_list_header_button">
             <button type="button" class="noMargin">
-              hi
+              Add field
             </button>
           </div>
         </div>
-
+        <div id="part_forms">
+        </div>
       </div>
     </div>
   </div>
