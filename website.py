@@ -1,6 +1,6 @@
 
 from flask import Flask, render_template, request, jsonify, send_file
-
+import copy
 import csv
 import sys
 import socket
@@ -127,12 +127,53 @@ def updateJson(part):
     print(part)
     with open("parts_store.json", "w") as json_file:
         json.dump(part_data, json_file, indent=4)
+
+def deleteJson(part):
+    index = findParIndextByID(part["ID"])
+    with open("parts_store.json", "r") as json_file:
+        part_data = json.load(json_file)
+    json_file.close()
+    del part_data[index]
+    print(part)
+    with open("parts_store.json", "w") as json_file:
+        json.dump(part_data, json_file, indent=4)
         
 
 @app.route("/savePart", methods=["POST"])
 def ldog():
     requestDict = request.get_json()
     updateJson(requestDict)
+    return jsonify({"return": 1})
+
+@app.route("/deletePart", methods=["POST"])
+def lddog():
+    requestDict = request.get_json()
+    deleteJson(requestDict)
+    return jsonify({"return": 1})
+
+@app.route("/newPart", methods=["POST"])
+def ldddog():
+    index=0
+    with open("parts_store.json", "r") as json_file:
+        part_data = json.load(json_file)
+    json_file.close()
+
+    for i in range(1, len(part_data)+2):
+        if(findParIndextByID(str(i)) == -1):
+                #get part 0
+                print(i)
+                newPart = copy.deepcopy(part_data[0])
+                for field in newPart:
+                    if(field != "ID"):
+                        newPart[field] = "none"
+                
+                newPart["ID"] = str(i)
+                print(newPart)
+                part_data.append(newPart)
+                break
+    
+    with open("parts_store.json", "w") as json_file:
+        json.dump(part_data, json_file, indent=4)
     return jsonify({"return": 1})
 
 if __name__ == "__main__":

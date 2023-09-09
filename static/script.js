@@ -1,6 +1,4 @@
 window.onload = function loadPage() {
-  //showHomePage();
-
   showBrowse();
 }
 
@@ -21,9 +19,7 @@ function showBrowse(part) {
     .then(html => {
       //const partsArray = JSON.parse(getPartList());
       subPage.innerHTML = html;
-
     });
-
 }
 
 function getPartFromServer(id) {
@@ -71,23 +67,14 @@ function createPartDetailsForm(part, field){
 }
 
 function loadPartModifiers(id) {
-
   const response = fetch('/getPart', {
-
     method: 'POST',
-
     body: JSON.stringify({
-
       'partID': String(id)
-
     }),
-
     headers: {
       'Content-Type': 'application/json',
     }
-
-
-
   })
     .then(response => response.json())
 
@@ -104,9 +91,6 @@ function loadPartModifiers(id) {
     })
 }
 
-function updateJson(part){
-  
-}
 
 function savePart(){
   var formContainer = document.getElementById("part_forms");
@@ -114,10 +98,7 @@ function savePart(){
   const result = {"ID":"0"};
   for (const form of forms) {
     const inputs = form.getElementsByTagName('input');
-    
     for (const input of inputs) {
-      console.log(`Name: ${input.name}, Value: ${input.value}`);
-      //result.push({ name: input.name, value: input.value });
       result[input.name] = input.value;
     }
   }
@@ -136,7 +117,60 @@ function savePart(){
     .then(response => response.json())
     .then(jsonResponse => {
       console.log(jsonResponse);
-      updateJson(jsonResponse);
+      showBrowse();
+    })
+}
+
+function deletePart(){
+  var formContainer = document.getElementById("part_forms");
+  const forms = formContainer.getElementsByTagName('form');
+  const result = {"ID":"-1"};
+  for (const form of forms) {
+    const inputs = form.getElementsByTagName('input');
+    for (const input of inputs) {
+      result[input.name] = input.value;
+    }
+  }
+  console.log(result);
+  if(result["ID"] == "-1"){
+    return;
+  }
+  const response = fetch('/deletePart', {
+
+    method: 'POST',
+
+    body: JSON.stringify(result),
+
+    headers: {
+      'Content-Type': 'application/json',
+    }
+  })
+    .then(response => response.json())
+    .then(jsonResponse => {
+      console.log(jsonResponse);
+      showBrowse();
+    })
+}
+
+function newPart(){
+  var formContainer = document.getElementById("part_forms");
+  const forms = formContainer.getElementsByTagName('form');
+  const result = {"ID":"0"};
+  for (const form of forms) {
+    const inputs = form.getElementsByTagName('input');
+    for (const input of inputs) {
+      result[input.name] = input.value;
+    }
+  }
+
+  const response = fetch('/newPart', {
+
+    method: 'POST'
+  })
+    .then(response => response.json())
+    .then(jsonResponse => {
+      console.log(jsonResponse);
+      showBrowse();
     })
 }
 
