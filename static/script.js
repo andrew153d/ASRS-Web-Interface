@@ -36,7 +36,6 @@ function getPartFromServer(id) {
     headers: {
       'Content-Type': 'application/json',
     }
-
   })
     .then(response => response.json())
 
@@ -75,7 +74,7 @@ function loadPartModifiers(id) {
     headers: {
       'Content-Type': 'application/json',
     }
-  })
+  }) 
     .then(response => response.json())
 
     .then(jsonResponse => {
@@ -91,11 +90,10 @@ function loadPartModifiers(id) {
     })
 }
 
-
 function savePart(){
   var formContainer = document.getElementById("part_forms");
   const forms = formContainer.getElementsByTagName('form');
-  const result = {"ID":"0"};
+  const result = {"ID":"-1"};
   for (const form of forms) {
     const inputs = form.getElementsByTagName('input');
     for (const input of inputs) {
@@ -103,7 +101,10 @@ function savePart(){
     }
   }
   console.log(result);
-
+  if(result["ID"] == "-1"){
+    return
+  }
+   
   const response = fetch('/savePart', {
 
     method: 'POST',
@@ -119,6 +120,29 @@ function savePart(){
       console.log(jsonResponse);
       showBrowse();
     })
+}
+ 
+function search(){
+  var form = document.getElementById("part_search");
+  console.log(form.value);
+
+  const response = fetch('/search', {
+
+    method: 'POST',
+
+    body: JSON.stringify({"term":form.value}),
+
+    headers: {
+      'Content-Type': 'application/json',
+    }
+  })
+  .then(response => response.text())
+  .then(html => {
+    const partsBox = document.getElementById("parts-list");
+    console.log(html);
+    partsBox.innerHTML = html;
+    
+  });
 }
 
 function deletePart(){
@@ -174,5 +198,16 @@ function newPart(){
     })
 }
 
+function filterResistor(){
+  var form = document.getElementById("part_search");
+  form.value = "Resistor"
+  search()
+}
+
+function filterCapacitor(){
+  var form = document.getElementById("part_search");
+  form.value = "Capacitor"
+  search()
+}
 
 

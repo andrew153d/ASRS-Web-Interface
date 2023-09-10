@@ -7,7 +7,9 @@
   --accent: #444444;
 
 }
-
+html {
+  overflow-y:scroll;
+}
 body{
   background-color: var(--dominant);
   color: var(--text);

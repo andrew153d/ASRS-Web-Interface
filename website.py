@@ -11,15 +11,98 @@ from getpass import getuser
 #sys.path.append("../")
 app = Flask(__name__)
 
-def replace_in_html_string(content, replacement_dict):
+class Part:
+    def __init__(self, ID):
+        self.propertyDict = {"ID": ID}
+
+    def __str__(self):
+        return f"{self.propertyDict}"       
+
+    def addProperty(self, name, value):
+        self.propertyDict[name] = value
+
+class PartCollection:
+    def __init__(self, filePath):
+        self.partList = []
+        if(len(filePath)==1):
+            return
+        self.jsonFilePath = filePath
+        with open(filePath, "r") as json_file:
+            part_data = json.load(json_file)
+        for p in part_data:
+            p_instance = Part(p["ID"])
+            for property in p:
+                p_instance.addProperty(property, p[property])
+            self.partList.append(p_instance)
+
+    def __str__(self):
+        returnString = ""
+        for p in self.partList:
+            returnString += (str(p) + "\n") 
+        return returnString
+    
+    def getPartByID(self, id):
+        for p in self.partList:
+            if p.propertyDict["ID"] == id:
+                return p
+        return "-1"
+    
+    def getPartIndexByID(self, id):
+        for i in range(len(self.partList)):
+            if self.partList[i].propertyDict["ID"] == id:
+                return i
+        return "-1"
+
+    def addEmptyPart(self):
+        for i in range(1, len(self.partList)+2):
+            if(self.getPartByID(str(i)) == "-1"):
+                print(i)
+                newPart = copy.deepcopy(self.partList[0])
+                for prop in newPart.propertyDict:
+                    newPart.propertyDict[prop] = "-"
+                newPart.propertyDict["ID"] = str(i)
+                self.partList.append(newPart)
+                return
+    
+    def getPartList(self):
+        return copy.deepcopy(self.partList)
+
+    def deletePartByID(self, id):
+        print("deleting part " + id)
+        del self.partList[self.getPartIndexByID(id)]
+
+    def addPart(self, p):
+        if(self.getPartByID(p.propertyDict["ID"]) == "-1"):
+            self.partList.append(p)
+
+    def writeToJson(self):
+        with open("parts_store.json", "w") as json_file:
+            plist = []
+            for p in self.partList:
+                plist.append(p.propertyDict)
+            json.dump(plist, json_file, indent=4)  
+        json_file.close()
+
+    def savePart(self, p):
+        i = self.getPartIndexByID(p["ID"])
+        self.partList[i].propertyDict = p
+        self.writeToJson()
+
+    def search(self, term):
+        newList = []
+        for p in self.partList:
+            if term.lower() in str(p).lower():
+                newList.append(p)
+        return newList        
+
+partListf = PartCollection("parts_store.json")
+
+
+def replace_in_string(content, replacement_dict):
     for key, value in replacement_dict.items():
         content = content.replace(key, value)
     return content
 
-
-# @app.route("/homePage.html")
-# def sendHomePage():
-#     return send_file("templates/homePage.html", mimetype="text/html")
 
 @app.route("/homePage.html")
 def sendHomePage():
@@ -43,22 +126,20 @@ def sendHomePage():
         "row3col4": front + "retreival time" + center + "16",
     }
     
-    modified_content = replace_in_html_string(content, replacements)
+    modified_content = replace_in_string(content, replacements)
     
     return modified_content
 
 @app.route("/browsePage.html")
 def sendBrowsePage():
     try:
-        with open("parts_store.json", "r") as json_file:
-            part_data = json.load(json_file)
         with open("templates/browsePage.html", "r") as html_file:
             browsePage = html_file.read()
     except Exception as e:
         return render_template("browsePage.html", part_list = "")
     
     content = """
-        <button type="button" class="row list_button listHeader">
+        <button type="button" onclick=test(ID) class="row list_button listHeader" onclick="test()">
             <span class="col-2"><strong>ID</strong></span>
             <span class="col-3"><strong>Name</strong></span>
             <span class="col-2"><strong>Value</strong></span>
@@ -78,10 +159,10 @@ def sendBrowsePage():
         """
 
     #insert the list of parts
-    for part in part_data:
-         content += replace_in_html_string(template, part)
+    for p in partListf.getPartList():
+         content += replace_in_string(template, p.propertyDict)
     
-    browsePage = replace_in_html_string(browsePage, {"{{part_list}}":content})
+    browsePage = replace_in_string(browsePage, {"{{part_list}}":content})
     
     return browsePage
 
@@ -105,76 +186,64 @@ def findParIndextByID(partID):
             return i
     return -1
 
-# button coming from log section of website
 @app.route("/getPart", methods=["POST"])
 def log():
     requestDict = request.get_json()
-    try:
-        # Read data from the JSON file
-        with open("parts_store.json", "r") as json_file:
-            part_data = json.load(json_file)
-    except Exception as e:
-        return jsonify({"error": str(e)})
-    p = findPartByID(requestDict["partID"])
-    return p
-
-def updateJson(part):
-    index = findParIndextByID(part["ID"])
-    with open("parts_store.json", "r") as json_file:
-        part_data = json.load(json_file)
-    json_file.close()
-    part_data[index] = part
-    print(part)
-    with open("parts_store.json", "w") as json_file:
-        json.dump(part_data, json_file, indent=4)
+    p = partListf.getPartByID(requestDict["partID"])
+    return p.propertyDict
 
 def deleteJson(part):
-    index = findParIndextByID(part["ID"])
-    with open("parts_store.json", "r") as json_file:
-        part_data = json.load(json_file)
-    json_file.close()
-    del part_data[index]
-    print(part)
-    with open("parts_store.json", "w") as json_file:
-        json.dump(part_data, json_file, indent=4)
+    partListf.deletePartByID(part["ID"])
         
-
 @app.route("/savePart", methods=["POST"])
-def ldog():
+def savePart():
     requestDict = request.get_json()
-    updateJson(requestDict)
+    partListf.savePart(requestDict)
     return jsonify({"return": 1})
 
 @app.route("/deletePart", methods=["POST"])
-def lddog():
+def deletePart():
     requestDict = request.get_json()
-    deleteJson(requestDict)
+    partListf.deletePartByID(requestDict["ID"])
     return jsonify({"return": 1})
 
 @app.route("/newPart", methods=["POST"])
-def ldddog():
-    index=0
-    with open("parts_store.json", "r") as json_file:
-        part_data = json.load(json_file)
-    json_file.close()
-
-    for i in range(1, len(part_data)+2):
-        if(findParIndextByID(str(i)) == -1):
-                #get part 0
-                print(i)
-                newPart = copy.deepcopy(part_data[0])
-                for field in newPart:
-                    if(field != "ID"):
-                        newPart[field] = "none"
-                
-                newPart["ID"] = str(i)
-                print(newPart)
-                part_data.append(newPart)
-                break
-    
-    with open("parts_store.json", "w") as json_file:
-        json.dump(part_data, json_file, indent=4)
+def newPart():
+    partListf.addEmptyPart()
     return jsonify({"return": 1})
+
+@app.route("/search", methods=["POST"])
+def newPdart():
+    requestDict = request.get_json()
+    sortedParts = PartCollection("d")
+    sortedParts.partList = partListf.search(requestDict["term"])
+    print(sortedParts)
+    content = """
+        <button type="button" class="row list_button listHeader">
+            <span class="col-2"><strong>ID</strong></span>
+            <span class="col-3"><strong>Name</strong></span>
+            <span class="col-2"><strong>Value</strong></span>
+            <span class="col-2"><strong>Footprint</strong></span>
+            <span class="col-3"><strong>Rating</strong></span>
+        </button>
+        """
+
+    template ="""
+        <button type="button" onclick=loadPartModifiers(ID) class="row list_button">
+            <span class="col-2">ID</span>
+            <span class="col-3">Name</span>
+            <span class="col-2">Value</span>
+            <span class="col-2">Footprint</span>
+            <span class="col-3">Rating</span>
+        </button>
+        """
+
+    #insert the list of parts
+    for p in sortedParts.getPartList():
+         content += replace_in_string(template, p.propertyDict)
+    return content
+
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)
+    

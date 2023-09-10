@@ -11,19 +11,19 @@
       <div class="container part_list_header">
         <div class="row">
           <div class="col-lg-2 col-md-4 col-6  part_list_header_button">
-            <button type="button" class="noMargin">
+            <button type="button" class="noMargin" onclick="filterResistor()"> 
               R
             </button>
           </div>
           <div class="col-lg-2  col-md-4  col-6  part_list_header_button">
-            <button type="button" class="noMargin">
+            <button type="button" class="noMargin" onclick="filterCapacitor()">
               C
             </button>
           </div>
           <div class="col-lg-2  col-md-4 col-6  part_list_header_button">
             <button type="button" class="noMargin">
               sort
-            </button>
+            </button> 
           </div>
           <div class="col-lg-2  col-md-4 col-6  part_list_header_button">
             <button type="button" class="noMargin">
@@ -43,7 +43,7 @@
         </div>
       </div>
       <form id="part_search_form">
-        <input type="text" id="part_search" name="fname">
+        <input type="text" id="part_search" name="fname" oninput="search()">
       </form>
       <div class="container" id="parts-list">
         {{part_list}}
