@@ -2,6 +2,22 @@ window.onload = function loadPage() {
   showBrowse();
 }
 
+function selectParts(part){
+  var button = document.getElementById("part_" + part);
+  button.style.transition = "background-color 0.2s ease";
+  button.style.backgroundColor = "var(--selected)";
+}
+
+function deSelectAllParts(){
+  var parentElement = document.getElementById("parts-list");
+  var buttons = parentElement.querySelectorAll("button");
+  for (var i = 0; i < buttons.length; i++) {
+    var button = buttons[i];
+    // Perform your action on 'button' here
+    console.log(button.textContent);
+  }
+}
+
 function showHomePage() {
   const subPage = document.getElementById('subPage');
   fetch('homePage.html')
@@ -66,6 +82,9 @@ function createPartDetailsForm(part, field){
 }
 
 function loadPartModifiers(id) {
+  
+  var button = document.getElementById("part_"+String(id));
+  deSelectAllParts();
   const response = fetch('/getPart', {
     method: 'POST',
     body: JSON.stringify({
@@ -200,13 +219,25 @@ function newPart(){
 
 function filterResistor(){
   var form = document.getElementById("part_search");
-  form.value = "Resistor"
-  search()
+  if(form.value == "Resistor"){
+    form.value = "";
+
+  }else{
+    form.value = "Resistor";
+
+  }
+  search();
 }
 
 function filterCapacitor(){
   var form = document.getElementById("part_search");
-  form.value = "Capacitor"
+  if(form.value == "Capacitor"){
+    form.value = "";
+
+  }else{
+    form.value = "Capacitor";
+
+  }
   search()
 }
 

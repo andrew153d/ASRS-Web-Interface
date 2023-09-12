@@ -149,7 +149,7 @@ def sendBrowsePage():
         """
 
     template ="""
-        <button type="button" onclick=loadPartModifiers(ID) class="row list_button">
+        <button type="button" onclick=loadPartModifiers(ID) id = "part_ID" class="row list_button">
             <span class="col-2">ID</span>
             <span class="col-3">Name</span>
             <span class="col-2">Value</span>
