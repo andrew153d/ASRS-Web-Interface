@@ -28,8 +28,8 @@ class PartCollection:
             return
         self.jsonFilePath = filePath
         with open(filePath, "r") as json_file:
-            part_data = json.load(json_file)
-        for p in part_data:
+            self.partJson = json.load(json_file)
+        for p in self.partJson:
             p_instance = Part(p["ID"])
             for property in p:
                 p_instance.addProperty(property, p[property])
@@ -64,6 +64,12 @@ class PartCollection:
                 self.partList.append(newPart)
                 return
     
+    def getPartListJson(self):
+        outList = []
+        for p in self.partList:
+            outList.append(p.propertyDict)
+        return outList
+
     def getPartList(self):
         return copy.deepcopy(self.partList)
 
@@ -93,10 +99,10 @@ class PartCollection:
         for p in self.partList:
             if term.lower() in str(p).lower():
                 newList.append(p)
-        return newList        
+        return newList    
+        
 
 partListf = PartCollection("parts_store.json")
-
 
 def replace_in_string(content, replacement_dict):
     for key, value in replacement_dict.items():
@@ -137,34 +143,13 @@ def sendBrowsePage():
             browsePage = html_file.read()
     except Exception as e:
         return render_template("browsePage.html", part_list = "")
-    
-    content = """
-        <button type="button" onclick=test(ID) class="row list_button listHeader" onclick="test()">
-            <span class="col-2"><strong>ID</strong></span>
-            <span class="col-3"><strong>Name</strong></span>
-            <span class="col-2"><strong>Value</strong></span>
-            <span class="col-2"><strong>Footprint</strong></span>
-            <span class="col-3"><strong>Rating</strong></span>
-        </button>
-        """
-
-    template ="""
-        <button type="button" onclick=loadPartModifiers(ID) id = "part_ID" class="row list_button">
-            <span class="col-2">ID</span>
-            <span class="col-3">Name</span>
-            <span class="col-2">Value</span>
-            <span class="col-2">Footprint</span>
-            <span class="col-3">Rating</span>
-        </button>
-        """
-
-    #insert the list of parts
-    for p in partListf.getPartList():
-         content += replace_in_string(template, p.propertyDict)
-    
-    browsePage = replace_in_string(browsePage, {"{{part_list}}":content})
-    
     return browsePage
+
+@app.route("/getPartsJson")
+def getPartsJson():
+    pjson = partListf.getPartListJson()
+    print(pjson)
+    return pjson
 
 @app.route("/")
 def index():

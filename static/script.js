@@ -2,13 +2,21 @@ window.onload = function loadPage() {
   showBrowse();
 }
 
-function selectParts(part){
+function replaceInString(content, replacementDict) {
+  for (let [key, value] of Object.entries(replacementDict)) {
+    content = content.split(key).join(value);
+  }
+  return content;
+}
+
+
+function selectParts(part) {
   var button = document.getElementById("part_" + part);
   button.style.transition = "background-color 0.2s ease";
   button.style.backgroundColor = "var(--selected)";
 }
 
-function deSelectAllParts(){
+function deSelectAllParts() {
   var parentElement = document.getElementById("parts-list");
   var buttons = parentElement.querySelectorAll("button");
   for (var i = 0; i < buttons.length; i++) {
@@ -27,14 +35,55 @@ function showHomePage() {
     });
 }
 
+function loadPartsList(html) {
+  const response = fetch('/getPartsJson', {
+    method: 'GET',
+  })
+    .then(response => response.json())
+    .then(jsonResponse => {
+      console.log(jsonResponse);
+
+      let content = `
+    <button type="button" onclick="test(ID)" class="row list_button listHeader" onclick="test()">
+        <span class="col-2"><strong>ID</strong></span>
+        <span class="col-3"><strong>Name</strong></span>
+        <span class="col-2"><strong>Value</strong></span>
+        <span class="col-2"><strong>Footprint</strong></span>
+        <span class="col-3"><strong>Rating</strong></span>
+    </button>
+`;
+
+      let template = `
+    <button type="button" onclick="loadPartModifiers(ID)" id="part_ID" class="row list_button">
+        <span class="col-2">ID</span>
+        <span class="col-3">Name</span>
+        <span class="col-2">Value</span>
+        <span class="col-2">Footprint</span>
+        <span class="col-3">Rating</span>
+    </button>
+`;
+
+      // Insert the list of parts
+      for (let p of jsonResponse) {
+        content += replaceInString(template, p);
+      }
+
+      const subPage = document.getElementById('subPage');
+      subPage.innerHTML = html;
+      let container = document.getElementById("parts-list");
+      container.innerHTML = content;
+      
+    })
+}
+
 function showBrowse(part) {
   // Get the parts list element
   const subPage = document.getElementById('subPage');
   fetch('browsePage.html')
     .then(response => response.text())
     .then(html => {
-      //const partsArray = JSON.parse(getPartList());
-      subPage.innerHTML = html;
+      //subPage.innerHTML = html;
+      loadPartsList(html);
     });
 }
 
@@ -70,7 +119,7 @@ function deleteProperty(obj, propertyName) {
   }
 }
 
-function createPartDetailsForm(part, field){
+function createPartDetailsForm(part, field) {
   return `<div class="row">
   <div class="col-12">
     <form class = "part_details_form">
@@ -82,8 +131,8 @@ function createPartDetailsForm(part, field){
 }
 
 function loadPartModifiers(id) {
-  
-  var button = document.getElementById("part_"+String(id));
+
+  var button = document.getElementById("part_" + String(id));
   deSelectAllParts();
   const response = fetch('/getPart', {
     method: 'POST',
@@ -93,12 +142,12 @@ function loadPartModifiers(id) {
     headers: {
       'Content-Type': 'application/json',
     }
-  }) 
+  })
     .then(response => response.json())
 
     .then(jsonResponse => {
       var part = jsonResponse;
-      console.log(typeof(part));
+      console.log(typeof (part));
       var modifiers = document.getElementById('part_forms');
       modifiers.innerHTML = '';
       modifiers.innerHTML += createPartDetailsForm(part, "ID");
@@ -109,10 +158,10 @@ function loadPartModifiers(id) {
     })
 }
 
-function savePart(){
+function savePart() {
   var formContainer = document.getElementById("part_forms");
   const forms = formContainer.getElementsByTagName('form');
-  const result = {"ID":"-1"};
+  const result = { "ID": "-1" };
   for (const form of forms) {
     const inputs = form.getElementsByTagName('input');
     for (const input of inputs) {
@@ -120,10 +169,10 @@ function savePart(){
     }
   }
   console.log(result);
-  if(result["ID"] == "-1"){
+  if (result["ID"] == "-1") {
     return
   }
-   
+
   const response = fetch('/savePart', {
 
     method: 'POST',
@@ -140,8 +189,8 @@ function savePart(){
       showBrowse();
     })
 }
- 
-function search(){
+
+function search() {
   var form = document.getElementById("part_search");
   console.log(form.value);
 
@@ -149,25 +198,25 @@ function search(){
 
     method: 'POST',
 
-    body: JSON.stringify({"term":form.value}),
+    body: JSON.stringify({ "term": form.value }),
 
     headers: {
       'Content-Type': 'application/json',
     }
   })
-  .then(response => response.text())
-  .then(html => {
-    const partsBox = document.getElementById("parts-list");
-    console.log(html);
-    partsBox.innerHTML = html;
-    
-  });
+    .then(response => response.text())
+    .then(html => {
+      const partsBox = document.getElementById("parts-list");
+      console.log(html);
+      partsBox.innerHTML = html;
+
+    });
 }
 
-function deletePart(){
+function deletePart() {
   var formContainer = document.getElementById("part_forms");
   const forms = formContainer.getElementsByTagName('form');
-  const result = {"ID":"-1"};
+  const result = { "ID": "-1" };
   for (const form of forms) {
     const inputs = form.getElementsByTagName('input');
     for (const input of inputs) {
@@ -175,7 +224,7 @@ function deletePart(){
     }
   }
   console.log(result);
-  if(result["ID"] == "-1"){
+  if (result["ID"] == "-1") {
     return;
   }
   const response = fetch('/deletePart', {
@@ -195,10 +244,10 @@ function deletePart(){
     })
 }
 
-function newPart(){
+function newPart() {
   var formContainer = document.getElementById("part_forms");
   const forms = formContainer.getElementsByTagName('form');
-  const result = {"ID":"0"};
+  const result = { "ID": "0" };
   for (const form of forms) {
     const inputs = form.getElementsByTagName('input');
     for (const input of inputs) {
@@ -217,24 +266,24 @@ function newPart(){
     })
 }
 
-function filterResistor(){
+function filterResistor() {
   var form = document.getElementById("part_search");
-  if(form.value == "Resistor"){
+  if (form.value == "Resistor") {
     form.value = "";
 
-  }else{
+  } else {
     form.value = "Resistor";
 
   }
   search();
 }
 
-function filterCapacitor(){
+function filterCapacitor() {
   var form = document.getElementById("part_search");
-  if(form.value == "Capacitor"){
+  if (form.value == "Capacitor") {
     form.value = "";
 
-  }else{
+  } else {
     form.value = "Capacitor";
 
   }
