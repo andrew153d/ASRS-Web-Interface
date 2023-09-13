@@ -1,0 +1,68 @@
+{
+    "settings": {
+        "columns": [
+            {
+                "Title": "ID",
+                "Display": "True",
+                "Width": "16"
+            },
+            {
+                "Title": "Name",
+                "Display": "True",
+                "Width": "16"
+            },
+            {
+                "Title": "Quantity",
+                "Display": "True",
+                "Width": "16"
+            },
+            {
+                "Title": "Value",
+                "Display": "True",
+                "Width": "16"
+            },
+            {
+                "Title": "Footprint",
+                "Display": "True",
+                "Width": "16"
+            },
+            {
+                "Title": "Rating",
+                "Display": "True",
+                "Width": "16"
+            }
+        ]
+    },
+    "Modifiers": [
+        {
+            "Title": "ID",
+            "Display": "True",
+            "AllowModify": "True"
+        },
+        {
+            "Title": "Name",
+            "Display": "True",
+            "AllowModify": "True"
+        },
+        {
+            "Title": "Quantity",
+            "Display": "True",
+            "AllowModify": "True"
+        },
+        {
+            "Title": "Value",
+            "Display": "True",
+            "AllowModify": "True"
+        },
+        {
+            "Title": "Footprint",
+            "Display": "True",
+            "AllowModify": "True"
+        },
+        {
+            "Title": "Rating",
+            "Display": "True",
+            "AllowModify": "True"
+        }
+    ]
+}
