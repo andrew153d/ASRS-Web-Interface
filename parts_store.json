@@ -5,61 +5,62 @@
         "Name": "Red Led",
         "Quantity": "0",
         "Rating": "-",
-        "Value": "-"
+        "Value": "-",
+        "source":
     },
     {
         "ID": "2",
-        "Quantity": "0",
         "Footprint": "0402",
         "Name": "Capacitor",
+        "Quantity": "0",
         "Rating": "25v",
         "Value": "47nf"
     },
     {
         "ID": "3",
-        "Quantity": "0",
         "Footprint": "0402",
         "Name": "Resistor",
+        "Quantity": "0",
         "Rating": "1/16w",
         "Value": "100\u03a9"
     },
     {
         "ID": "4",
-        "Quantity": "0",
         "Footprint": "0402",
         "Name": "Resistor",
+        "Quantity": "0",
         "Rating": "1/16w",
         "Value": "10k\u03a9"
     },
     {
         "ID": "5",
-        "Quantity": "0",
         "Footprint": "0402",
         "Name": "Resistor",
+        "Quantity": "0",
         "Rating": "1/16w",
         "Value": "1k\u03a9"
     },
     {
         "ID": "6",
-        "Quantity": "0",
         "Footprint": "0402",
         "Name": "Capacitor",
+        "Quantity": "0",
         "Rating": "16v",
         "Value": "0.22uf"
     },
     {
         "ID": "7",
-        "Quantity": "0",
         "Footprint": "0805",
         "Name": "Capacitor",
+        "Quantity": "0",
         "Rating": "16v",
         "Value": "22uf"
     },
     {
         "ID": "8",
-        "Quantity": "0",
         "Footprint": "0402",
         "Name": "Capacitor",
+        "Quantity": "0",
         "Rating": "16v",
         "Value": "0.1uf"
     },

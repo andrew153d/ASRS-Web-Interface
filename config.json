@@ -1,38 +1,36 @@
 {
-    "settings": {
-        "columns": [
-            {
-                "Title": "ID",
-                "Display": "True",
-                "Width": "16"
-            },
-            {
-                "Title": "Name",
-                "Display": "True",
-                "Width": "16"
-            },
-            {
-                "Title": "Quantity",
-                "Display": "True",
-                "Width": "16"
-            },
-            {
-                "Title": "Value",
-                "Display": "True",
-                "Width": "16"
-            },
-            {
-                "Title": "Footprint",
-                "Display": "True",
-                "Width": "16"
-            },
-            {
-                "Title": "Rating",
-                "Display": "True",
-                "Width": "16"
-            }
-        ]
-    },
+    "Columns": [
+        {
+            "Title": "ID",
+            "Display": "True",
+            "Width": "16"
+        },
+        {
+            "Title": "Name",
+            "Display": "True",
+            "Width": "16"
+        },
+        {
+            "Title": "Quantity",
+            "Display": "True",
+            "Width": "16"
+        },
+        {
+            "Title": "Value",
+            "Display": "True",
+            "Width": "16"
+        },
+        {
+            "Title": "Footprint",
+            "Display": "True",
+            "Width": "16"
+        },
+        {
+            "Title": "Rating",
+            "Display": "True",
+            "Width": "16"
+        }
+    ],
     "Modifiers": [
         {
             "Title": "ID",

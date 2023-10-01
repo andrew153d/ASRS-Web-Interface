@@ -11,6 +11,15 @@ from getpass import getuser
 #sys.path.append("../")
 app = Flask(__name__)
 
+def getConfig():
+    with open("config.json", "r") as json_file:
+        data = json.load(json_file)
+    return data
+
+def setConfig(cfg):
+    with open("parts_store.json", "w") as json_file:
+        json.dump(cfg, json_file, indent=4)  
+
 class Part:
     def __init__(self, ID):
         self.propertyDict = {"ID": ID}
@@ -56,7 +65,7 @@ class PartCollection:
     def addEmptyPart(self):
         for i in range(1, len(self.partList)+2):
             if(self.getPartByID(str(i)) == "-1"):
-                print(i)
+                #print(i)
                 newPart = copy.deepcopy(self.partList[0])
                 for prop in newPart.propertyDict:
                     newPart.propertyDict[prop] = "-"
@@ -74,7 +83,7 @@ class PartCollection:
         return copy.deepcopy(self.partList)
 
     def deletePartByID(self, id):
-        print("deleting part " + id)
+        #print("deleting part " + id)
         del self.partList[self.getPartIndexByID(id)]
 
     def addPart(self, p):
@@ -99,8 +108,7 @@ class PartCollection:
         for p in self.partList:
             if term.lower() in str(p).lower():
                 newList.append(p)
-        return newList    
-        
+        return newList
 
 partListf = PartCollection("parts_store.json")
 
@@ -148,8 +156,16 @@ def sendBrowsePage():
 @app.route("/getPartsJson")
 def getPartsJson():
     pjson = partListf.getPartListJson()
-    print(pjson)
+    #print(pjson)
     return pjson
+
+@app.route("/getPartData")
+def getPartData():
+    sendData = {}
+    sendData["parts"] = partListf.getPartListJson()
+    sendData["config"] = getConfig()
+    #print(json.dumps(sendData, indent=4))
+    return sendData
 
 @app.route("/")
 def index():
@@ -175,7 +191,11 @@ def findParIndextByID(partID):
 def log():
     requestDict = request.get_json()
     p = partListf.getPartByID(requestDict["partID"])
-    return p.propertyDict
+    config = getConfig()    
+    outData = {}
+    outData["part"] = p.propertyDict
+    outData["config"] = getConfig()
+    return outData
 
 def deleteJson(part):
     partListf.deletePartByID(part["ID"])
@@ -202,7 +222,7 @@ def newPdart():
     requestDict = request.get_json()
     sortedParts = PartCollection("d")
     sortedParts.partList = partListf.search(requestDict["term"])
-    print(sortedParts)
+    #print(sortedParts)
     content = """
         <button type="button" class="row list_button listHeader">
             <span class="col-2"><strong>ID</strong></span>
