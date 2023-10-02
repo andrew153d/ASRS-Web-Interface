@@ -13,7 +13,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap">
 
-  <title>ASRS web controller</title>
+  <title>Pogo</title>
 </head>
 
 <body>
@@ -24,25 +24,55 @@
     </button>
     <button type="button" class="menu_button">
       <img src="../static/images/icons/home.png" alt="logo" id="home_icon" />
-      <p class = "menu_label">home</p>
+      <p class="menu_label">home</p>
     </button>
     <button type="button" class="menu_button">
       <img src="../static/images/icons/inventory.png" alt="logo" id="inventory_icon" />
-      <p class = "menu_label">inventory</p>
+      <p class="menu_label">inventory</p>
     </button>
     <button type="button" class="menu_button">
       <img src="../static/images/icons/categories.png" alt="logo" id="categories_icon" />
-      <p class = "menu_label">categories</p>
+      <p class="menu_label">categories</p>
     </button>
     <button type="button" class="menu_button"><img src="../static/images/icons/settings.png" alt="logo"
         id="settings_icon" />
-      <p class = "menu_label">settings</p>
-      </button>
+      <p class="menu_label">settings</p>
+    </button>
   </div>
 
-  <div class = "mainContent">
-    <div>
-      hi
+  <div class="mainContent">
+    <div class="container-fluid">
+      <div class="row" id="page_title_row">
+        <h1 class="col-3" id="inventory">inventory</h1>
+        <div class="col-8" id="search_container">
+          <input type="text" name="textbox" id="search_bar" value="search">
+        </div>
+      </div>
+      <div class="row" id="button-row">
+        <div class="col-2">
+          <button>
+            <select id="filter-dropdown" name="fruit">
+              <option value="apple">in stock</option>
+              <option value="banana">low stock</option>
+              <option value="cherry">price</option>
+              <option value="orange">oldest</option>
+              <option value="strawberry">newest</option>
+            </select>
+          </button>
+        </div>
+        <div class="col-2">
+          <button>
+            +   filter
+          </button>
+        </div>
+        <div class="col-6">
+        </div>
+        <div class="col-2">
+          <button>
+             +   part
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 
