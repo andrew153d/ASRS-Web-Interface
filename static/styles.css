@@ -65,16 +65,15 @@ body{
   padding: 30px;
 }
 
-.mainContent > div{
+.mainContent > .container-fluid{
   background-color: var(--dominant_1);
   border-radius: 20px;
   color: var(--text);
   height: 100%;
   padding: 10px;
 }
-#mainContentContainer > .row{
+div.mainContent > div.container-fluid > .row{
   height: fit-content;
-  /* top left bottom right */
   margin-right: 50px;
   margin-left: 50px;
 }
@@ -191,14 +190,12 @@ span {
   justify-content: space-between;
   align-items:center;
 }
+
 a {
-  
   justify-content: center; /* Center content horizontally */
   align-items: center; /* Center content vertically */
   /* Additional styles for the link if needed */
 }
-
-
 
 .part-button-container a{
   display:flex;
@@ -214,13 +211,20 @@ a {
   outline:none;
   text-decoration: none;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  transition: opacity 0.2s ease-in-out;
+  transition: opacity 1s ease;
+  transition: background-color 0.3s ease;
 }
 
 .table-row:hover a
 {
   opacity: 100%;
 }
+
+.table-row:hover a:hover{
+  background-color: var(--dominant_4);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+}
+
 a img{
   width: 60%;
 }
@@ -233,5 +237,23 @@ a img{
   padding:5px 0px;
 }
 
+#table-details-row{
+  background-color:var(--dominant_2);
+  border-radius: 20px;
+  margin-right: 30px;
+  margin-left: 30px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
 
+#table-details-row > .container > *:not(:first-child){
+  margin:2px 20px;
+}
+
+#table-details-row a{
+opacity:1;
+}
+
+.details-image{
+width:80px;
+}
 
