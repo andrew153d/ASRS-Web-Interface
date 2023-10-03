@@ -128,7 +128,12 @@ h1{
   color: var(--highlight);
   width:15ch;
 }
-
+#button-row > :first-child{
+  display: flex; /* Use flexbox for centering */
+  justify-content: start; /* Center content horizontally */
+  align-items:start; /* Center content vertically */
+  padding-left: 0%;
+}
 #button-row > :last-child{
   display: flex; /* Use flexbox for centering */
   justify-content: end; /* Center content horizontally */
@@ -150,10 +155,14 @@ select:focus{
 #column-titles{
   margin-top:30px;
 }
+#column-titles > div{
+  border-bottom: 1px solid var(--highlight);
+}
 .col-12{
   display: flex; /* Use flexbox to evenly distribute the spans */
   justify-content: space-between; /* Distribute space evenly between spans */
 }
+
 span {
   flex:1;
   margin:0px;
