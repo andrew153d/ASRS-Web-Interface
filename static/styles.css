@@ -73,11 +73,27 @@ body{
   padding: 10px;
 }
 .container-fluid > .row{
-  margin-bottom: 10px;
+  height: fit-content;
+  /* top left bottom right */
+  margin-right: 50px;
+  margin-left: 50px;
 }
 
 #page_title_row{
-  height: 3em;
+  height: fit-content;
+  display: flex;
+  /* top left bottom right */
+  margin-top:20px;
+  margin-bottom:40px;
+  margin-left: 20px;
+}
+
+.fixed-width {
+  width: 11ch;
+}
+
+.stretch-width {
+  flex: 1;
 }
 
 h1{
@@ -94,33 +110,52 @@ h1{
   height: 80%; 
   width: 100%;
   font-size: 1.5rem;
-  padding-left: 3px;
   margin-top: 2px;
 }
 
-#button-row{
-  height: 40px;
-  margin: 40px;
-}
+
 
 #button-row button{
   all: unset;
-  padding: 0px 20px 0px 20px;
+  display: flex; /* Use flexbox for centering */
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
   background-color: var(--dominant_2);
   width: 70%;
-  height: 100%;
+  height: 40px;
   border-radius: 20px;
   cursor: pointer;
   color: var(--highlight);
+  width:15ch;
+}
+
+#button-row > :last-child{
+  display: flex; /* Use flexbox for centering */
+  justify-content: end; /* Center content horizontally */
+  align-items:end; /* Center content vertically */
+  padding-right: 0%;
 }
 
 #filter-dropdown{
   border: none;
   background-color: var(--dominant_2);
   color: var(--highlight);
+  
 }
 
 select:focus{
   border:none;
   outline:none;
+}
+#column-titles{
+  margin-top:30px;
+}
+.col-12{
+  display: flex; /* Use flexbox to evenly distribute the spans */
+  justify-content: space-between; /* Distribute space evenly between spans */
+}
+span {
+  flex:1;
+  margin:0px;
+  display: inline-block;
 }
