@@ -3,7 +3,7 @@ function tableElementMouseOver(element){
 
     // Loop through each descendant button and apply the expandDiv function
     descendantButtons.forEach(function(button) {
-      button.style.display = "flex";
+      //button.style.display = "flex";
     });
 }
 
@@ -12,7 +12,7 @@ function tableElementMouseLeave(element){
 
     // Loop through each descendant button and apply the expandDiv function
     descendantButtons.forEach(function(button) {
-      button.style.display = "none";
+      //button.style.display = "none";
     });
 }
 

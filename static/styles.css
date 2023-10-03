@@ -72,7 +72,7 @@ body{
   height: 100%;
   padding: 10px;
 }
-.container-fluid > .row{
+#mainContentContainer > .row{
   height: fit-content;
   /* top left bottom right */
   margin-right: 50px;
@@ -197,8 +197,12 @@ a {
   align-items: center; /* Center content vertically */
   /* Additional styles for the link if needed */
 }
+
+
+
 .part-button-container a{
-  display:none;
+  display:flex;
+  opacity:0;
   flex:1;
   width:34px;
   height:34px;
@@ -206,12 +210,28 @@ a {
   margin:0px;
   border: none;
   border-radius: 18px;
-  background-color: var(--dominant_2);
+  background-color: var(--dominant_3);
   outline:none;
   text-decoration: none;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  transition: opacity 0.2s ease-in-out;
 }
 
+.table-row:hover a
+{
+  opacity: 100%;
+}
 a img{
   width: 60%;
 }
+
+.part-detail-box{
+  display: flex; /* Use flexbox to evenly distribute the spans */
+  justify-content: space-between; /* Distribute space evenly between spans */
+  align-items: center;
+  border-bottom: 1px solid var(--hightlight_dark);
+  padding:5px 0px;
+}
+
+
+
