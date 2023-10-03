@@ -152,19 +152,66 @@ select:focus{
   border:none;
   outline:none;
 }
+
 #column-titles{
   margin-top:30px;
-}
-#column-titles > div{
   border-bottom: 1px solid var(--highlight);
 }
-.col-12{
+
+#column-titles > :last-child{
+  width:160px;
+  flex:none;
+}
+
+.table-row{
   display: flex; /* Use flexbox to evenly distribute the spans */
   justify-content: space-between; /* Distribute space evenly between spans */
+  align-items: center;
+  border-bottom: 1px solid var(--hightlight_dark);
+  padding:5px 0px;
 }
 
 span {
   flex:1;
   margin:0px;
-  display: inline-block;
+  height:fit-content;
+  display: flex;
+  text-align: left;
+}
+
+.part-image{
+  height: 35px;
+  margin-left: 30px;
+}
+
+.part-button-container{
+  width: 160px;
+  flex:none;
+  display: flex;
+  justify-content: space-between;
+  align-items:center;
+}
+a {
+  
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
+  /* Additional styles for the link if needed */
+}
+.part-button-container a{
+  display:none;
+  flex:1;
+  width:34px;
+  height:34px;
+  padding:2px;
+  margin:0px;
+  border: none;
+  border-radius: 18px;
+  background-color: var(--dominant_2);
+  outline:none;
+  text-decoration: none;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+a img{
+  width: 60%;
 }
