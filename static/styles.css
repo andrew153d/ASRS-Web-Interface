@@ -163,8 +163,8 @@ select:focus{
 }
 
 .table-row{
-  display: flex; /* Use flexbox to evenly distribute the spans */
-  justify-content: space-between; /* Distribute space evenly between spans */
+  display: flex;
+  justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid var(--hightlight_dark);
   padding:5px 0px;
@@ -230,12 +230,14 @@ a img{
 }
 
 .part-detail-box{
-  display: flex; /* Use flexbox to evenly distribute the spans */
-  justify-content: space-between; /* Distribute space evenly between spans */
+  display: flex;
+  justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid var(--hightlight_dark);
   padding:5px 0px;
 }
+
+
 
 #table-details-row{
   background-color:var(--dominant_2);
@@ -245,15 +247,96 @@ a img{
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
-#table-details-row > .container > *:not(:first-child){
+#table-details-row  div.table-row{
+  margin-right:10px;
+  margin-left:10px;
+}
+
+#table-details-row > .container > *:not(:first-child){ 
   margin:2px 20px;
 }
 
-#table-details-row a{
+#table-details-row a{ /*always show the buttons*/
 opacity:1;
 }
 
 .details-image{
 width:80px;
 }
+
+.data-container{
+  margin:0px 8px;
+  margin-bottom:4px;
+  padding:0px;
+  border-bottom:solid 1px var(--highlight);
+}
+
+.data-label{
+  font-size: 12px;
+  display:block;
+}
+
+.data-entry{
+  /* remove all default styling */ 
+  background:transparent;
+  outline: none;
+  border:none;
+  padding:0px;
+    
+  white-space: nowrap; /* Prevent text from wrapping */
+  overflow: hidden; /* Hide overflowing content */
+  text-overflow: ellipsis;
+  color:var(--text);
+}
+
+
+.name-width{
+  width:13ch;
+}
+
+.value-width{
+  width:10ch
+}
+
+.footprint-width{
+  width:6ch;
+}
+
+.quantity-width{
+  width:5ch;
+}
+
+.rating-width{
+  width:5ch;
+}
+
+.group-width{
+  width:11ch;
+}
+
+.location-width{
+  width:8ch;
+}
+
+.tags-width{
+  width:30ch;
+}
+
+.sku-width{
+  width:6ch;
+}
+
+.price-width{
+  width:10ch;
+}
+
+.warningstock-width{
+  width:10ch;
+}
+
+.datasheett-width, .source-width{
+  width: 20ch;
+}
+
+
 
