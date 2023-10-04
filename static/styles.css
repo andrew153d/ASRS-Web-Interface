@@ -63,6 +63,7 @@ body{
   width: 70%;
   height: 100vh;
   padding: 30px;
+  
 }
 
 .mainContent > .container-fluid{
@@ -71,7 +72,18 @@ body{
   color: var(--text);
   height: 100%;
   padding: 10px;
+  overflow-y: scroll;
 }
+
+.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+.scrollable-div::-webkit-scrollbar {
+  width: 0; /* Hide the scroll bar on Webkit (Chrome, Safari) */
+}
+
 div.mainContent > div.container-fluid > .row{
   height: fit-content;
   margin-right: 50px;
@@ -85,6 +97,7 @@ div.mainContent > div.container-fluid > .row{
   margin-top:20px;
   margin-bottom:40px;
   margin-left: 20px;
+  position:sticky;
 }
 
 .fixed-width {
@@ -155,6 +168,8 @@ select:focus{
 #column-titles{
   margin-top:30px;
   border-bottom: 1px solid var(--highlight);
+  
+  background-color: var(--dominant_1);
 }
 
 #column-titles > :last-child{
@@ -181,6 +196,11 @@ span {
 .part-image{
   height: 35px;
   margin-left: 30px;
+}
+
+input[type="checkbox"]{
+  background-color: transparent;
+  border: solid 1px var(--dominant_3);
 }
 
 .part-button-container{
@@ -248,8 +268,8 @@ a img{
 }
 
 #table-details-row  div.table-row{
-  margin-right:10px;
-  margin-left:10px;
+  margin-right:9px;
+  margin-left:9px;
 }
 
 #table-details-row > .container > *:not(:first-child){ 
@@ -311,7 +331,7 @@ width:80px;
 }
 
 .group-width{
-  width:11ch;
+  width:15ch;
 }
 
 .location-width{
@@ -338,5 +358,9 @@ width:80px;
   width: 20ch;
 }
 
-
+.data-container select{
+  border: none;
+  background-color: var(--dominant_2);
+  color: var(--text);
+}
 

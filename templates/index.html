@@ -72,7 +72,7 @@
           </button>
         </div>
       </div>
-      <div class="row" id="column-titles">
+      <div class="row sticky" id="column-titles">
         <span> </span>
         <span>#SKU</span>
         <span>Name</span>
@@ -193,66 +193,798 @@
             <div class="col">
               <div class="row">
                 <div class="col-auto data-container">
-                  <label class = "data-label" for="object_43_Name">Name</label>
-                  <input class= "name-width data-entry" type="text" name="textbox" id="object_43_Name" value="Resistor">
+                  <label class="data-label" for="object_43_Name">Name</label>
+                  <input class="name-width data-entry" type="text" name="textbox" id="object_43_Name" value="Resistor">
                 </div>
                 <div class="col-auto data-container">
-                  <label class = "data-label" for="object_43_Value">Value</label>
-                  <input class= "value-width data-entry" type="text" name="textbox" id="object_43_Value" value="23.5k">
+                  <label class="data-label" for="object_43_Value">Value</label>
+                  <input class="value-width data-entry" type="text" name="textbox" id="object_43_Value" value="23.5k">
                 </div>
                 <div class="col-auto data-container">
-                  <label class = "data-label" for="object_43_Footprint">Footprint</label>
-                  <input class= "footprint-width data-entry" type="text" name="textbox" id="object_43_Footprint" value="0805">
+                  <label class="data-label" for="object_43_Footprint">Footprint</label>
+                  <input class="footprint-width data-entry" type="text" name="textbox" id="object_43_Footprint"
+                    value="0805">
                 </div>
                 <div class="col-auto data-container">
-                  <label class = "data-label" for="object_43_Quantity">Quantity</label>
-                  <input class= "quantity-width data-entry" type="text" name="textbox" id="object_43_Quantity" value="456">
+                  <label class="data-label" for="object_43_Quantity">Quantity</label>
+                  <input class="quantity-width data-entry" type="text" name="textbox" id="object_43_Quantity"
+                    value="456">
                 </div>
                 <div class="col-auto data-container">
-                  <label class = "data-label" for="object_43_Rating">Rating</label>
-                  <input class= "rating-width data-entry" type="text" name="textbox" id="object_43_Rating" value="16V">
+                  <label class="data-label" for="object_43_Rating">Rating</label>
+                  <input class="rating-width data-entry" type="text" name="textbox" id="object_43_Rating" value="16V">
                 </div>
                 <div class="col-auto data-container">
-                  <label class = "data-label" for="object_43_group">Group</label>
-                  <input class= "group-width data-entry" type="text" name="textbox" id="object_43_group" value="none">
+                  <label class="data-label" for="object_43_group">Group</label>
+                  <!-- <input class= "group-width data-entry" type="text" name="textbox" id="object_43_group" value="none"> -->
+                  <select class="group-width data-entry" id="group-dropdown" name="fruit">
+                    <option value="apple">in stock</option>
+                    <option value="banana">low stock</option>
+                    <option value="cherry">price</option>
+                    <option value="orange">oldest</option>
+                    <option value="strawberry">newest</option>
+                  </select>
                 </div>
                 <div class="col-auto data-container">
-                  <label class = "data-label" for="object_43_location">Location</label>
-                  <input class= "location-width data-entry" type="text" name="textbox" id="object_43_location" value="grid">
+                  <label class="data-label" for="object_43_location">Location</label>
+                  <input class="location-width data-entry" type="text" name="textbox" id="object_43_location"
+                    value="grid">
                 </div>
                 <div class="col-auto data-container">
-                  <label class = "data-label" for="object_43_tags">Tags</label>
-                  <input class= "tags-width data-entry" type="text" name="textbox" id="object_43_tags" value="none">
+                  <label class="data-label" for="object_43_tags">Tags</label>
+                  <input class="tags-width data-entry" type="text" name="textbox" id="object_43_tags" value="none">
                 </div>
               </div>
               <div class="row">
                 <div class="col-auto data-container">
-                  <label class = "data-label" for="object_43_sku">SKU</label>
-                  <input class= "sku-width data-entry" type="text" name="textbox" id="object_43_sku" value="21">
+                  <label class="data-label" for="object_43_sku">SKU</label>
+                  <input class="sku-width data-entry" type="text" name="textbox" id="object_43_sku" value="21">
                 </div>
                 <div class="col-auto data-container">
-                  <label class = "data-label" for="object_43_price">Price</label>
-                  <input class= "price-width data-entry" type="text" name="textbox" id="object_43_price" value="$0.0064:50">
+                  <label class="data-label" for="object_43_price">Price</label>
+                  <input class="price-width data-entry" type="text" name="textbox" id="object_43_price"
+                    value="$0.0064:50">
                 </div>
                 <div class="col-auto data-container">
-                  <label class = "data-label" for="object_43_warningstock">Warning Stock</label>
-                  <input class= "price-width data-entry" type="text" name="textbox" id="object_43_warningstock" value="2">
+                  <label class="data-label" for="object_43_warningstock">Warning Stock</label>
+                  <input class="price-width data-entry" type="text" name="textbox" id="object_43_warningstock"
+                    value="2">
                 </div>
               </div>
               <div class="row">
-                <div class="col-auto data-container">
-                  <label class = "data-label" for="object_43_warningstock">Source</label>
-                  <input class= "source-width data-entry" type="text" name="textbox" id="object_43_source" value="https://example.com">
+                <div class="col-lg-6 col-md-12">
+                  <div class="row">
+                    <div class="col-auto data-container">
+                      <label class="data-label" for="object_43_warningstock">Source</label>
+                      <input class="source-width data-entry" type="text" name="textbox" id="object_43_source"
+                        value="https://example.com">
+                    </div>
+                    <div class="col-auto data-container">
+                      <label class="data-label" for="object_43_datasheet">Datasheet</label>
+                      <input class="datasheet-width data-entry" type="text" name="textbox" id="object_43_datasheet"
+                        value="https://example.com">
+                    </div>
+                  </div>
                 </div>
-                <div class="col-auto data-container">
-                  <label class = "data-label" for="object_43_datasheet">Datasheet</label>
-                  <input class= "datasheet-width data-entry" type="text" name="textbox" id="object_43_datasheet" value="https://example.com">
+                <div class="col-lg-6 col-md-12">
+                  <div style="background-color: darkslategrey; width:500px; height:200px; border-radius: 20px;"></div>
                 </div>
-
+              </div>
+              <div class="row">
+                <div class="col">
+                  <button class="float-end">
+                    Save
+                  </button>
+                </div>
               </div>
             </div>
           </div>
         </div>
+      </div>
+      <div class="row table-row" onmouseover="tableElementMouseOver(this)" onmouseleave="tableElementMouseLeave(this)">
+        <span>
+          <input type="checkbox" class="part-checkbox">
+          <img src="../static/images/0402.jpg" alt="logo" class="part-image" />
+        </span>
+        <span>
+          21
+        </span>
+        <span>
+          Resistor
+        </span>
+        <span>
+          10k
+        </span>
+        <span>
+          0402
+        </span>
+        <span>
+          200
+        </span>
+        <span>
+          16V
+        </span>
+        <span>
+          Passives
+        </span>
+        <span>
+          Grid
+        </span>
+        <span class="part-button-container">
+          <div>
+            <a href="https://www.example.com" target="_blank">
+              <img src="../static/images/icons/launch.png" alt="launch" />
+            </a>
+          </div>
+          <div>
+            <a href="https://www.example.com" target="_blank">
+              <img src="../static/images/icons/datasheet.png" alt="launch" />
+            </a>
+          </div>
+          <div>
+            <a href="https://www.example.com" target="_blank">
+              <img src="../static/images/icons/trash.png" alt="launch" />
+            </a>
+          </div>
+        </span>
+      </div>
+      <div class="row table-row" onmouseover="tableElementMouseOver(this)" onmouseleave="tableElementMouseLeave(this)">
+        <span>
+          <input type="checkbox" class="part-checkbox">
+          <img src="../static/images/0402.jpg" alt="logo" class="part-image" />
+        </span>
+        <span>
+          21
+        </span>
+        <span>
+          Resistor
+        </span>
+        <span>
+          10k
+        </span>
+        <span>
+          0402
+        </span>
+        <span>
+          200
+        </span>
+        <span>
+          16V
+        </span>
+        <span>
+          Passives
+        </span>
+        <span>
+          Grid
+        </span>
+        <span class="part-button-container">
+          <div>
+            <a href="https://www.example.com" target="_blank">
+              <img src="../static/images/icons/launch.png" alt="launch" />
+            </a>
+          </div>
+          <div>
+            <a href="https://www.example.com" target="_blank">
+              <img src="../static/images/icons/datasheet.png" alt="launch" />
+            </a>
+          </div>
+          <div>
+            <a href="https://www.example.com" target="_blank">
+              <img src="../static/images/icons/trash.png" alt="launch" />
+            </a>
+          </div>
+        </span>
+      </div>
+      <div class="row table-row" onmouseover="tableElementMouseOver(this)" onmouseleave="tableElementMouseLeave(this)">
+        <span>
+          <input type="checkbox" class="part-checkbox">
+          <img src="../static/images/0402.jpg" alt="logo" class="part-image" />
+        </span>
+        <span>
+          21
+        </span>
+        <span>
+          Resistor
+        </span>
+        <span>
+          10k
+        </span>
+        <span>
+          0402
+        </span>
+        <span>
+          200
+        </span>
+        <span>
+          16V
+        </span>
+        <span>
+          Passives
+        </span>
+        <span>
+          Grid
+        </span>
+        <span class="part-button-container">
+          <div>
+            <a href="https://www.example.com" target="_blank">
+              <img src="../static/images/icons/launch.png" alt="launch" />
+            </a>
+          </div>
+          <div>
+            <a href="https://www.example.com" target="_blank">
+              <img src="../static/images/icons/datasheet.png" alt="launch" />
+            </a>
+          </div>
+          <div>
+            <a href="https://www.example.com" target="_blank">
+              <img src="../static/images/icons/trash.png" alt="launch" />
+            </a>
+          </div>
+        </span>
+      </div>
+      <div class="row table-row" onmouseover="tableElementMouseOver(this)" onmouseleave="tableElementMouseLeave(this)">
+        <span>
+          <input type="checkbox" class="part-checkbox">
+          <img src="../static/images/0402.jpg" alt="logo" class="part-image" />
+        </span>
+        <span>
+          21
+        </span>
+        <span>
+          Resistor
+        </span>
+        <span>
+          10k
+        </span>
+        <span>
+          0402
+        </span>
+        <span>
+          200
+        </span>
+        <span>
+          16V
+        </span>
+        <span>
+          Passives
+        </span>
+        <span>
+          Grid
+        </span>
+        <span class="part-button-container">
+          <div>
+            <a href="https://www.example.com" target="_blank">
+              <img src="../static/images/icons/launch.png" alt="launch" />
+            </a>
+          </div>
+          <div>
+            <a href="https://www.example.com" target="_blank">
+              <img src="../static/images/icons/datasheet.png" alt="launch" />
+            </a>
+          </div>
+          <div>
+            <a href="https://www.example.com" target="_blank">
+              <img src="../static/images/icons/trash.png" alt="launch" />
+            </a>
+          </div>
+        </span>
+      </div>
+      <div class="row table-row" onmouseover="tableElementMouseOver(this)" onmouseleave="tableElementMouseLeave(this)">
+        <span>
+          <input type="checkbox" class="part-checkbox">
+          <img src="../static/images/0402.jpg" alt="logo" class="part-image" />
+        </span>
+        <span>
+          21
+        </span>
+        <span>
+          Resistor
+        </span>
+        <span>
+          10k
+        </span>
+        <span>
+          0402
+        </span>
+        <span>
+          200
+        </span>
+        <span>
+          16V
+        </span>
+        <span>
+          Passives
+        </span>
+        <span>
+          Grid
+        </span>
+        <span class="part-button-container">
+          <div>
+            <a href="https://www.example.com" target="_blank">
+              <img src="../static/images/icons/launch.png" alt="launch" />
+            </a>
+          </div>
+          <div>
+            <a href="https://www.example.com" target="_blank">
+              <img src="../static/images/icons/datasheet.png" alt="launch" />
+            </a>
+          </div>
+          <div>
+            <a href="https://www.example.com" target="_blank">
+              <img src="../static/images/icons/trash.png" alt="launch" />
+            </a>
+          </div>
+        </span>
+      </div>
+      <div class="row table-row" onmouseover="tableElementMouseOver(this)" onmouseleave="tableElementMouseLeave(this)">
+        <span>
+          <input type="checkbox" class="part-checkbox">
+          <img src="../static/images/0402.jpg" alt="logo" class="part-image" />
+        </span>
+        <span>
+          21
+        </span>
+        <span>
+          Resistor
+        </span>
+        <span>
+          10k
+        </span>
+        <span>
+          0402
+        </span>
+        <span>
+          200
+        </span>
+        <span>
+          16V
+        </span>
+        <span>
+          Passives
+        </span>
+        <span>
+          Grid
+        </span>
+        <span class="part-button-container">
+          <div>
+            <a href="https://www.example.com" target="_blank">
+              <img src="../static/images/icons/launch.png" alt="launch" />
+            </a>
+          </div>
+          <div>
+            <a href="https://www.example.com" target="_blank">
+              <img src="../static/images/icons/datasheet.png" alt="launch" />
+            </a>
+          </div>
+          <div>
+            <a href="https://www.example.com" target="_blank">
+              <img src="../static/images/icons/trash.png" alt="launch" />
+            </a>
+          </div>
+        </span>
+      </div>
+      <div class="row table-row" onmouseover="tableElementMouseOver(this)" onmouseleave="tableElementMouseLeave(this)">
+        <span>
+          <input type="checkbox" class="part-checkbox">
+          <img src="../static/images/0402.jpg" alt="logo" class="part-image" />
+        </span>
+        <span>
+          21
+        </span>
+        <span>
+          Resistor
+        </span>
+        <span>
+          10k
+        </span>
+        <span>
+          0402
+        </span>
+        <span>
+          200
+        </span>
+        <span>
+          16V
+        </span>
+        <span>
+          Passives
+        </span>
+        <span>
+          Grid
+        </span>
+        <span class="part-button-container">
+          <div>
+            <a href="https://www.example.com" target="_blank">
+              <img src="../static/images/icons/launch.png" alt="launch" />
+            </a>
+          </div>
+          <div>
+            <a href="https://www.example.com" target="_blank">
+              <img src="../static/images/icons/datasheet.png" alt="launch" />
+            </a>
+          </div>
+          <div>
+            <a href="https://www.example.com" target="_blank">
+              <img src="../static/images/icons/trash.png" alt="launch" />
+            </a>
+          </div>
+        </span>
+      </div>
+      <div class="row table-row" onmouseover="tableElementMouseOver(this)" onmouseleave="tableElementMouseLeave(this)">
+        <span>
+          <input type="checkbox" class="part-checkbox">
+          <img src="../static/images/0402.jpg" alt="logo" class="part-image" />
+        </span>
+        <span>
+          21
+        </span>
+        <span>
+          Resistor
+        </span>
+        <span>
+          10k
+        </span>
+        <span>
+          0402
+        </span>
+        <span>
+          200
+        </span>
+        <span>
+          16V
+        </span>
+        <span>
+          Passives
+        </span>
+        <span>
+          Grid
+        </span>
+        <span class="part-button-container">
+          <div>
+            <a href="https://www.example.com" target="_blank">
+              <img src="../static/images/icons/launch.png" alt="launch" />
+            </a>
+          </div>
+          <div>
+            <a href="https://www.example.com" target="_blank">
+              <img src="../static/images/icons/datasheet.png" alt="launch" />
+            </a>
+          </div>
+          <div>
+            <a href="https://www.example.com" target="_blank">
+              <img src="../static/images/icons/trash.png" alt="launch" />
+            </a>
+          </div>
+        </span>
+      </div>
+      <div class="row table-row" onmouseover="tableElementMouseOver(this)" onmouseleave="tableElementMouseLeave(this)">
+        <span>
+          <input type="checkbox" class="part-checkbox">
+          <img src="../static/images/0402.jpg" alt="logo" class="part-image" />
+        </span>
+        <span>
+          21
+        </span>
+        <span>
+          Resistor
+        </span>
+        <span>
+          10k
+        </span>
+        <span>
+          0402
+        </span>
+        <span>
+          200
+        </span>
+        <span>
+          16V
+        </span>
+        <span>
+          Passives
+        </span>
+        <span>
+          Grid
+        </span>
+        <span class="part-button-container">
+          <div>
+            <a href="https://www.example.com" target="_blank">
+              <img src="../static/images/icons/launch.png" alt="launch" />
+            </a>
+          </div>
+          <div>
+            <a href="https://www.example.com" target="_blank">
+              <img src="../static/images/icons/datasheet.png" alt="launch" />
+            </a>
+          </div>
+          <div>
+            <a href="https://www.example.com" target="_blank">
+              <img src="../static/images/icons/trash.png" alt="launch" />
+            </a>
+          </div>
+        </span>
+      </div>
+      <div class="row table-row" onmouseover="tableElementMouseOver(this)" onmouseleave="tableElementMouseLeave(this)">
+        <span>
+          <input type="checkbox" class="part-checkbox">
+          <img src="../static/images/0402.jpg" alt="logo" class="part-image" />
+        </span>
+        <span>
+          21
+        </span>
+        <span>
+          Resistor
+        </span>
+        <span>
+          10k
+        </span>
+        <span>
+          0402
+        </span>
+        <span>
+          200
+        </span>
+        <span>
+          16V
+        </span>
+        <span>
+          Passives
+        </span>
+        <span>
+          Grid
+        </span>
+        <span class="part-button-container">
+          <div>
+            <a href="https://www.example.com" target="_blank">
+              <img src="../static/images/icons/launch.png" alt="launch" />
+            </a>
+          </div>
+          <div>
+            <a href="https://www.example.com" target="_blank">
+              <img src="../static/images/icons/datasheet.png" alt="launch" />
+            </a>
+          </div>
+          <div>
+            <a href="https://www.example.com" target="_blank">
+              <img src="../static/images/icons/trash.png" alt="launch" />
+            </a>
+          </div>
+        </span>
+      </div>
+      <div class="row table-row" onmouseover="tableElementMouseOver(this)" onmouseleave="tableElementMouseLeave(this)">
+        <span>
+          <input type="checkbox" class="part-checkbox">
+          <img src="../static/images/0402.jpg" alt="logo" class="part-image" />
+        </span>
+        <span>
+          21
+        </span>
+        <span>
+          Resistor
+        </span>
+        <span>
+          10k
+        </span>
+        <span>
+          0402
+        </span>
+        <span>
+          200
+        </span>
+        <span>
+          16V
+        </span>
+        <span>
+          Passives
+        </span>
+        <span>
+          Grid
+        </span>
+        <span class="part-button-container">
+          <div>
+            <a href="https://www.example.com" target="_blank">
+              <img src="../static/images/icons/launch.png" alt="launch" />
+            </a>
+          </div>
+          <div>
+            <a href="https://www.example.com" target="_blank">
+              <img src="../static/images/icons/datasheet.png" alt="launch" />
+            </a>
+          </div>
+          <div>
+            <a href="https://www.example.com" target="_blank">
+              <img src="../static/images/icons/trash.png" alt="launch" />
+            </a>
+          </div>
+        </span>
+      </div>
+      <div class="row table-row" onmouseover="tableElementMouseOver(this)" onmouseleave="tableElementMouseLeave(this)">
+        <span>
+          <input type="checkbox" class="part-checkbox">
+          <img src="../static/images/0402.jpg" alt="logo" class="part-image" />
+        </span>
+        <span>
+          21
+        </span>
+        <span>
+          Resistor
+        </span>
+        <span>
+          10k
+        </span>
+        <span>
+          0402
+        </span>
+        <span>
+          200
+        </span>
+        <span>
+          16V
+        </span>
+        <span>
+          Passives
+        </span>
+        <span>
+          Grid
+        </span>
+        <span class="part-button-container">
+          <div>
+            <a href="https://www.example.com" target="_blank">
+              <img src="../static/images/icons/launch.png" alt="launch" />
+            </a>
+          </div>
+          <div>
+            <a href="https://www.example.com" target="_blank">
+              <img src="../static/images/icons/datasheet.png" alt="launch" />
+            </a>
+          </div>
+          <div>
+            <a href="https://www.example.com" target="_blank">
+              <img src="../static/images/icons/trash.png" alt="launch" />
+            </a>
+          </div>
+        </span>
+      </div>
+      <div class="row table-row" onmouseover="tableElementMouseOver(this)" onmouseleave="tableElementMouseLeave(this)">
+        <span>
+          <input type="checkbox" class="part-checkbox">
+          <img src="../static/images/0402.jpg" alt="logo" class="part-image" />
+        </span>
+        <span>
+          21
+        </span>
+        <span>
+          Resistor
+        </span>
+        <span>
+          10k
+        </span>
+        <span>
+          0402
+        </span>
+        <span>
+          200
+        </span>
+        <span>
+          16V
+        </span>
+        <span>
+          Passives
+        </span>
+        <span>
+          Grid
+        </span>
+        <span class="part-button-container">
+          <div>
+            <a href="https://www.example.com" target="_blank">
+              <img src="../static/images/icons/launch.png" alt="launch" />
+            </a>
+          </div>
+          <div>
+            <a href="https://www.example.com" target="_blank">
+              <img src="../static/images/icons/datasheet.png" alt="launch" />
+            </a>
+          </div>
+          <div>
+            <a href="https://www.example.com" target="_blank">
+              <img src="../static/images/icons/trash.png" alt="launch" />
+            </a>
+          </div>
+        </span>
+      </div>
+      <div class="row table-row" onmouseover="tableElementMouseOver(this)" onmouseleave="tableElementMouseLeave(this)">
+        <span>
+          <input type="checkbox" class="part-checkbox">
+          <img src="../static/images/0402.jpg" alt="logo" class="part-image" />
+        </span>
+        <span>
+          21
+        </span>
+        <span>
+          Resistor
+        </span>
+        <span>
+          10k
+        </span>
+        <span>
+          0402
+        </span>
+        <span>
+          200
+        </span>
+        <span>
+          16V
+        </span>
+        <span>
+          Passives
+        </span>
+        <span>
+          Grid
+        </span>
+        <span class="part-button-container">
+          <div>
+            <a href="https://www.example.com" target="_blank">
+              <img src="../static/images/icons/launch.png" alt="launch" />
+            </a>
+          </div>
+          <div>
+            <a href="https://www.example.com" target="_blank">
+              <img src="../static/images/icons/datasheet.png" alt="launch" />
+            </a>
+          </div>
+          <div>
+            <a href="https://www.example.com" target="_blank">
+              <img src="../static/images/icons/trash.png" alt="launch" />
+            </a>
+          </div>
+        </span>
+      </div>
+      <div class="row table-row" onmouseover="tableElementMouseOver(this)" onmouseleave="tableElementMouseLeave(this)">
+        <span>
+          <input type="checkbox" class="part-checkbox">
+          <img src="../static/images/0402.jpg" alt="logo" class="part-image" />
+        </span>
+        <span>
+          21
+        </span>
+        <span>
+          Resistor
+        </span>
+        <span>
+          10k
+        </span>
+        <span>
+          0402
+        </span>
+        <span>
+          200
+        </span>
+        <span>
+          16V
+        </span>
+        <span>
+          Passives
+        </span>
+        <span>
+          Grid
+        </span>
+        <span class="part-button-container">
+          <div>
+            <a href="https://www.example.com" target="_blank">
+              <img src="../static/images/icons/launch.png" alt="launch" />
+            </a>
+          </div>
+          <div>
+            <a href="https://www.example.com" target="_blank">
+              <img src="../static/images/icons/datasheet.png" alt="launch" />
+            </a>
+          </div>
+          <div>
+            <a href="https://www.example.com" target="_blank">
+              <img src="../static/images/icons/trash.png" alt="launch" />
+            </a>
+          </div>
+        </span>
       </div>
       <div class="row table-row" onmouseover="tableElementMouseOver(this)" onmouseleave="tableElementMouseLeave(this)">
         <span>
