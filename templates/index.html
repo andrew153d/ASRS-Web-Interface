@@ -12,7 +12,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap">
-
+  <link rel="stylesheet" href="https://unpkg.com/simplebar@latest/dist/simplebar.min.css">
+  
   <title>Pogo</title>
 </head>
 
@@ -22,6 +23,7 @@
     <button type="button" class="menu_button">
       <img src="../static/images/icons/pogo.png" alt="logo" id="logo" />
     </button>
+    
     <button type="button" class="menu_button">
       <img src="../static/images/icons/home.png" alt="logo" id="home_icon" />
       <p class="menu_label">home</p>
@@ -38,9 +40,15 @@
         id="settings_icon" />
       <p class="menu_label">settings</p>
     </button>
+    <div class="theme-switch-wrapper">
+      <label class="theme-switch" for="checkbox">
+          <input type="checkbox" id="checkbox" />
+          <div class="slider round"></div>
+    </label>
+  </div>
   </div>
   <div class="mainContent">
-    <div class="container-fluid" id="mainContentContainer">
+    <div class="container-fluid scroll-container" id="mainContentContainer">
       <div class="row" id="page_title_row">
         <h1 class="col-3 fixed-width">inventory</h1>
         <div class="col-8 stretch-width" id="search_container">
@@ -84,7 +92,7 @@
         <span>Location</span>
         <span> </span>
       </div>
-      <div class="row table-row" onmouseover="tableElementMouseOver(this)" onmouseleave="tableElementMouseLeave(this)">
+      <div class="row table-row"  >
         <span>
           <input type="checkbox" class="part-checkbox">
           <img src="../static/images/0402.jpg" alt="logo" class="part-image" />
@@ -272,7 +280,7 @@
               </div>
               <div class="row">
                 <div class="col">
-                  <button class="float-end">
+                  <button class="float-end save-button">
                     Save
                   </button>
                 </div>
@@ -281,7 +289,7 @@
           </div>
         </div>
       </div>
-      <div class="row table-row" onmouseover="tableElementMouseOver(this)" onmouseleave="tableElementMouseLeave(this)">
+      <div class="row table-row"  >
         <span>
           <input type="checkbox" class="part-checkbox">
           <img src="../static/images/0402.jpg" alt="logo" class="part-image" />
@@ -328,7 +336,7 @@
           </div>
         </span>
       </div>
-      <div class="row table-row" onmouseover="tableElementMouseOver(this)" onmouseleave="tableElementMouseLeave(this)">
+      <div class="row table-row"  >
         <span>
           <input type="checkbox" class="part-checkbox">
           <img src="../static/images/0402.jpg" alt="logo" class="part-image" />
@@ -375,7 +383,7 @@
           </div>
         </span>
       </div>
-      <div class="row table-row" onmouseover="tableElementMouseOver(this)" onmouseleave="tableElementMouseLeave(this)">
+      <div class="row table-row"  >
         <span>
           <input type="checkbox" class="part-checkbox">
           <img src="../static/images/0402.jpg" alt="logo" class="part-image" />
@@ -422,7 +430,7 @@
           </div>
         </span>
       </div>
-      <div class="row table-row" onmouseover="tableElementMouseOver(this)" onmouseleave="tableElementMouseLeave(this)">
+      <div class="row table-row"  >
         <span>
           <input type="checkbox" class="part-checkbox">
           <img src="../static/images/0402.jpg" alt="logo" class="part-image" />
@@ -469,7 +477,7 @@
           </div>
         </span>
       </div>
-      <div class="row table-row" onmouseover="tableElementMouseOver(this)" onmouseleave="tableElementMouseLeave(this)">
+      <div class="row table-row"  >
         <span>
           <input type="checkbox" class="part-checkbox">
           <img src="../static/images/0402.jpg" alt="logo" class="part-image" />
@@ -516,7 +524,7 @@
           </div>
         </span>
       </div>
-      <div class="row table-row" onmouseover="tableElementMouseOver(this)" onmouseleave="tableElementMouseLeave(this)">
+      <div class="row table-row"  >
         <span>
           <input type="checkbox" class="part-checkbox">
           <img src="../static/images/0402.jpg" alt="logo" class="part-image" />
@@ -563,7 +571,7 @@
           </div>
         </span>
       </div>
-      <div class="row table-row" onmouseover="tableElementMouseOver(this)" onmouseleave="tableElementMouseLeave(this)">
+      <div class="row table-row"  >
         <span>
           <input type="checkbox" class="part-checkbox">
           <img src="../static/images/0402.jpg" alt="logo" class="part-image" />
@@ -610,7 +618,7 @@
           </div>
         </span>
       </div>
-      <div class="row table-row" onmouseover="tableElementMouseOver(this)" onmouseleave="tableElementMouseLeave(this)">
+      <div class="row table-row"  >
         <span>
           <input type="checkbox" class="part-checkbox">
           <img src="../static/images/0402.jpg" alt="logo" class="part-image" />
@@ -657,7 +665,7 @@
           </div>
         </span>
       </div>
-      <div class="row table-row" onmouseover="tableElementMouseOver(this)" onmouseleave="tableElementMouseLeave(this)">
+      <div class="row table-row"  >
         <span>
           <input type="checkbox" class="part-checkbox">
           <img src="../static/images/0402.jpg" alt="logo" class="part-image" />
@@ -704,7 +712,7 @@
           </div>
         </span>
       </div>
-      <div class="row table-row" onmouseover="tableElementMouseOver(this)" onmouseleave="tableElementMouseLeave(this)">
+      <div class="row table-row"  >
         <span>
           <input type="checkbox" class="part-checkbox">
           <img src="../static/images/0402.jpg" alt="logo" class="part-image" />
@@ -751,7 +759,7 @@
           </div>
         </span>
       </div>
-      <div class="row table-row" onmouseover="tableElementMouseOver(this)" onmouseleave="tableElementMouseLeave(this)">
+      <div class="row table-row"  >
         <span>
           <input type="checkbox" class="part-checkbox">
           <img src="../static/images/0402.jpg" alt="logo" class="part-image" />
@@ -798,7 +806,7 @@
           </div>
         </span>
       </div>
-      <div class="row table-row" onmouseover="tableElementMouseOver(this)" onmouseleave="tableElementMouseLeave(this)">
+      <div class="row table-row"  >
         <span>
           <input type="checkbox" class="part-checkbox">
           <img src="../static/images/0402.jpg" alt="logo" class="part-image" />
@@ -845,7 +853,7 @@
           </div>
         </span>
       </div>
-      <div class="row table-row" onmouseover="tableElementMouseOver(this)" onmouseleave="tableElementMouseLeave(this)">
+      <div class="row table-row"  >
         <span>
           <input type="checkbox" class="part-checkbox">
           <img src="../static/images/0402.jpg" alt="logo" class="part-image" />
@@ -892,7 +900,7 @@
           </div>
         </span>
       </div>
-      <div class="row table-row" onmouseover="tableElementMouseOver(this)" onmouseleave="tableElementMouseLeave(this)">
+      <div class="row table-row"  >
         <span>
           <input type="checkbox" class="part-checkbox">
           <img src="../static/images/0402.jpg" alt="logo" class="part-image" />
@@ -939,7 +947,7 @@
           </div>
         </span>
       </div>
-      <div class="row table-row" onmouseover="tableElementMouseOver(this)" onmouseleave="tableElementMouseLeave(this)">
+      <div class="row table-row"  >
         <span>
           <input type="checkbox" class="part-checkbox">
           <img src="../static/images/0402.jpg" alt="logo" class="part-image" />
@@ -986,7 +994,7 @@
           </div>
         </span>
       </div>
-      <div class="row table-row" onmouseover="tableElementMouseOver(this)" onmouseleave="tableElementMouseLeave(this)">
+      <div class="row table-row"  >
         <span>
           <input type="checkbox" class="part-checkbox">
           <img src="../static/images/0402.jpg" alt="logo" class="part-image" />
@@ -1033,7 +1041,7 @@
           </div>
         </span>
       </div>
-      <div class="row table-row" onmouseover="tableElementMouseOver(this)" onmouseleave="tableElementMouseLeave(this)">
+      <div class="row table-row"  >
         <span>
           <input type="checkbox" class="part-checkbox">
           <img src="../static/images/0402.jpg" alt="logo" class="part-image" />
@@ -1080,7 +1088,7 @@
           </div>
         </span>
       </div>
-      <div class="row table-row" onmouseover="tableElementMouseOver(this)" onmouseleave="tableElementMouseLeave(this)">
+      <div class="row table-row"  >
         <span>
           <input type="checkbox" class="part-checkbox">
           <img src="../static/images/0402.jpg" alt="logo" class="part-image" />
@@ -1132,6 +1140,7 @@
   </div>
 
   <script type="text/javascript" src="{{ url_for('static', filename='script.js') }}"></script>
+  <script src="https://unpkg.com/simplebar@latest/dist/simplebar.min.js"></script>
 </body>
 
 </html>
