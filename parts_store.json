@@ -1,74 +1,32 @@
 [
     {
-        "ID": "1",
-        "Footprint": "0805ish",
-        "Name": "Red Led",
-        "Quantity": "0",
-        "Rating": "-",
-        "Value": "-"
-    },
-    {
-        "ID": "2",
-        "Footprint": "0402",
+        "SKU": "23",
         "Name": "Capacitor",
-        "Quantity": "0",
-        "Rating": "25v",
-        "Value": "47nf"
-    },
-    {
-        "ID": "3",
+        "Value": "31.6k",
         "Footprint": "0402",
-        "Name": "Resistor",
-        "Quantity": "0",
-        "Rating": "1/16w",
-        "Value": "100\u03a9"
-    },
-    {
-        "ID": "4",
-        "Footprint": "0402",
-        "Name": "Resistor",
-        "Quantity": "0",
-        "Rating": "1/16w",
-        "Value": "10k\u03a9"
-    },
-    {
-        "ID": "5",
-        "Footprint": "0402",
-        "Name": "Resistor",
-        "Quantity": "0",
-        "Rating": "1/16w",
-        "Value": "1k\u03a9"
-    },
-    {
-        "ID": "6",
-        "Footprint": "0402",
-        "Name": "Capacitor",
-        "Quantity": "0",
-        "Rating": "16v",
-        "Value": "0.22uf"
-    },
-    {
-        "ID": "7",
-        "Footprint": "0805",
-        "Name": "Capacitor",
-        "Quantity": "0",
-        "Rating": "16v",
-        "Value": "22uf"
-    },
-    {
-        "ID": "8",
-        "Footprint": "0402",
-        "Name": "Capacitor",
-        "Quantity": "0",
-        "Rating": "16v",
-        "Value": "0.1uf"
-    },
-    {
-        "ID": "9",
-        "Quantity": "0",
-        "Footprint": "0402",
-        "Name": "Capacitor",
-        "Rating": "16v",
-        "Value": "4.7uf"
+        "Quantity": "87",
+        "Rating": "16V",
+        "Group": "Passives",
+        "Location": "Grid",
+        "Tags": [
+            "smd",
+            "idk",
+            "smollboi"
+        ],
+        "Price": "0.0064",
+        "Warning Stock": "10",
+        "Source": "https://www.digikey.com/en/products/detail/samsung-electro-mechanics/CL05A104KA5NNNC/3886701",
+        "Datasheet": "https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/503/CL05A104KA5NNNC.pdf",
+        "History": [
+            {
+                "12/2/2023": "100"
+            },
+            {
+                "14/2/2023": "98"
+            },
+            {
+                "30/6/2023": "87"
+            }
+        ]
     }
 ]
