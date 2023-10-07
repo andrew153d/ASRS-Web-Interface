@@ -1,0 +1,47 @@
+<div class="row table-row">
+    <span>
+      <input type="checkbox" class="part-checkbox">
+      <img src="../static/images/0402.jpg" alt="logo" class="part-image" />
+    </span>
+    <span>
+      {{SKU}}
+    </span>
+    <span>
+      {{Name}}
+    </span>
+    <span>
+      {{Value}}
+    </span>
+    <span>
+      {{Footprint}}
+    </span>
+    <span>
+      {{Quantity}}
+    </span>
+    <span>
+      {{Rating}}
+    </span>
+    <span>
+      {{Group}}
+    </span>
+    <span>
+      {{Location}}
+    </span>
+    <span class="part-button-container">
+      <div>
+        <a href="{{Source}}" target="_blank">
+          <img src="../static/images/icons/launch.png" alt="launch" />
+        </a>
+      </div>
+      <div>
+        <a href="{{Datasheet}}" target="_blank">
+          <img src="../static/images/icons/datasheet.png" alt="launch" />
+        </a>
+      </div>
+      <div>
+        <a onclick="deletePart(this)">
+          <img src="../static/images/icons/trash.png" alt="launch" />
+        </a>
+      </div>
+    </span>
+  </div>

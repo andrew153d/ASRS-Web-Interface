@@ -1,33 +1,51 @@
-const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+const xValues = [50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150];
+const yValues = [7, 8, 8, 9, 9, 9, 20, 11, 14, 14, 10];
 
-function switchTheme(e) {
-    if (e.target.checked) {
-        document.documentElement.setAttribute('data-theme', 'dark');
+new Chart("myChart", {
+  type: "line",
+  data: {
+    labels: xValues,
+    datasets: [{
+      fill: false,
+      lineTension: 0.3,
+      backgroundColor: "rgba(0,0,0,1.0)",
+      borderColor: "rgba(193,176,82,0.7)",
+      data: yValues
+    }]
+  },
+  options: {
+    legend: {display: false},
+    scales: {
+      
+      x: {
+        ticks: {
+          color: '#000', // Color of the x-axis labels
+        },
+        grid: {
+          color: '#000', // Color of the x-axis grid lines
+        },
+        border: {
+          width: 2,
+          color: '#000', // <-------------- Color of the x-axis
+        },
+      },
+      y: {
+        ticks: {
+          color: '#000', // Color of the x-axis labels
+        },
+        grid: {
+          color: '#000', // Color of the x-axis grid lines
+        },
+        border: {
+          width: 2,
+          color: '#000', // <-------------- Color of the x-axis
+        },
+      }
     }
-    else {
-        document.documentElement.setAttribute('data-theme', 'light');
-    }    
-}
-
-toggleSwitch.addEventListener('change', switchTheme, false);
-
-function switchTheme(e) {
-  if (e.target.checked) {
-      document.documentElement.setAttribute('data-theme', 'dark');
-      localStorage.setItem('theme', 'dark'); //add this
   }
-  else {
-      document.documentElement.setAttribute('data-theme', 'light');
-      localStorage.setItem('theme', 'light'); //add this
-  }    
-}
+});
 
-const currentTheme = localStorage.getItem('theme') ? localStorage.getItem('theme') : null;
 
-if (currentTheme) {
-    document.documentElement.setAttribute('data-theme', currentTheme);
-
-    if (currentTheme === 'dark') {
-        toggleSwitch.checked = true;
-    }
+function deletePart(part){
+  
 }

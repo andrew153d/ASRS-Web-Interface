@@ -14,10 +14,11 @@ body{
   background-color: var(--dominant);
   font-family: 'Roboto Mono', monospace;
   display: flex;
-  transition: background-color 0.5s ease;
+  transition: background-color 0.1s ease;
 }
 
 #vertical-menu{
+  position: relative;
   background-color: var(--highlight);
   width: 80px;
   height: 100vh;
@@ -72,7 +73,8 @@ body{
   border-radius: 20px;
   color: var(--text);
   height: 100%;
-  padding: 10px;
+  padding: 0px;
+  padding-top:0px;
   overflow-y: scroll;
 }
 
@@ -169,7 +171,10 @@ select:focus{
 #column-titles{
   margin-top:30px;
   border-bottom: 1px solid var(--highlight);
-  
+  margin-right:0px;
+  margin-left:0px;
+  padding-right:50px;
+  padding-left:50px;
   background-color: var(--dominant_1);
 }
 
@@ -376,7 +381,7 @@ width:80px;
 }
 [data-theme="dark"] {
   --text: #000000;
-  --highlight: #d4c87d;
+  --highlight: #335e48;
   --hightlight_dark:#5E5629;
   --dominant:#EEEEEE;
   --dominant_1:#DDDDDD;
@@ -387,6 +392,8 @@ width:80px;
 }
 /*Simple css to style it like a toggle switch*/
 .theme-switch-wrapper {
+  position: absolute;
+  bottom: 10px;
   display: flex;
   align-items: center;
 
@@ -469,3 +476,21 @@ input:checked + .slider:before {
 .scroll-container::-webkit-scrollbar { 
   display: none;  /* Safari and Chrome */
 }
+
+#graph-container{
+background-color: var(--dominant_4);
+width:500px; 
+height:auto; 
+border-radius: 20px;
+padding:20px;
+margin:10px;
+}
+
+#graph-container canvas{
+  width:100%;
+  height:auto;
+  max-height:300px;
+  color:white;
+}
+
+
