@@ -28,5 +28,35 @@
                 "30/6/2023": "87"
             }
         ]
+    },
+    {
+        "SKU": "12",
+        "Name": "Resistor",
+        "Value": "0",
+        "Footprint": "0402",
+        "Quantity": "23",
+        "Rating": "1/16W",
+        "Group": "Passives",
+        "Location": "Grid",
+        "Tags": [
+            "smd",
+            "idk",
+            "smollboi"
+        ],
+        "Price": "0.00560",
+        "Warning Stock": "10",
+        "Source": "https://www.digikey.com/en/products/detail/stackpole-electronics-inc/RMCF0402ZT0R00/1756905",
+        "Datasheet": "https://www.seielect.com/catalog/sei-rmcf_rmcp.pdf",
+        "History": [
+            {
+                "12/2/2023": "100"
+            },
+            {
+                "14/2/2023": "98"
+            },
+            {
+                "30/6/2023": "87"
+            }
+        ]
     }
 ]
