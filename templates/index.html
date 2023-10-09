@@ -2,6 +2,7 @@
 <html lang="en">
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,7 +16,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap">
   <link rel="stylesheet" href="https://unpkg.com/simplebar@latest/dist/simplebar.min.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  
+
   <title>Pogo</title>
 </head>
 
@@ -25,7 +26,7 @@
     <button type="button" class="menu_button">
       <img src="../static/images/icons/pogo.png" alt="logo" id="logo" />
     </button>
-    
+
     <button type="button" class="menu_button">
       <img src="../static/images/icons/home.png" alt="logo" id="home_icon" />
       <p class="menu_label">home</p>
@@ -44,20 +45,22 @@
     </button>
     <div class="theme-switch-wrapper float-end">
       <label class="theme-switch" for="checkbox">
-          <input type="checkbox" id="checkbox" />
-          <div class="slider round"></div>
-    </label>
-  </div>
+        <input type="checkbox" id="checkbox" />
+        <div class="slider round"></div>
+      </label>
+    </div>
   </div>
   <div class="mainContent">
     <div class="container-fluid scroll-container" id="mainContentContainer">
       
-
-      </div>
+      
+      
+      
+    </div>
   </div>
 
-  <script type="text/javascript" src="{{ url_for('static', filename='script.js') }}"></script>
-  <script type="text/javascript" src="{{ url_for('static', filename='dark_mode_switch.js') }}"></script>
+  <script src="../static/script.js"></script>
+  <script src="../static/dark_mode_switch.js"></script>
 </body>
 
 </html>

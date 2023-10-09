@@ -1,4 +1,5 @@
-<div class="row table-row" onclick="partRowClicked(this)" id="{{SKU}}">
+<div class="row part_row" id="{{SKU}}">
+  <div class="table-row">
     <span>
       <input type="checkbox" class="part-checkbox">
       <img src="../static/images/0402.jpg" alt="logo" class="part-image" />
@@ -29,6 +30,11 @@
     </span>
     <span class="part-button-container">
       <div>
+        <a onclick="partRowClicked({{SKU}})" target="_blank">
+          <img src="../static/images/icons/edit.png" alt="launch" />
+        </a>
+      </div>
+      <div>
         <a href="{{Source}}" target="_blank">
           <img src="../static/images/icons/launch.png" alt="launch" />
         </a>
@@ -45,3 +51,4 @@
       </div>
     </span>
   </div>
+</div>

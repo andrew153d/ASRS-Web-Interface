@@ -8,6 +8,7 @@ import threading
 import time
 import json
 from getpass import getuser
+import re
 #sys.path.append("../")
 app = Flask(__name__)
 
@@ -251,12 +252,14 @@ def index():
 
 
 
-
+def remove_non_numbers(input_string):
+    # Use regular expression to remove all non-digit characters
+    return re.sub(r'[^0-9]', '', input_string)
 
 
 @app.route("/inventory.html")
 def showInventoryPage():
-
+    print("returning inventory")
     return render_template("inventory.html")
 
 @app.route("/partsList")
@@ -270,6 +273,24 @@ def showPartsList():
         contentString+=render_template("part_template.html", **part)
     return contentString
 
+@app.route("/getModifyPartBox", methods=["POST"])
+def getModifyPartBox():
+    print(type(request.get_json()))
+    json_data = request.get_json()
+    print(remove_non_numbers(json_data["partID"]))
+    with open("parts_store.json", "r") as json_file:
+        data = json.load(json_file)
+
+    part_details = {}
+    for part in data:
+        print(part)
+        print('/n')
+        print(json_data)
+        if(part["SKU"] == remove_non_numbers(json_data["partID"])):
+            part_details = part
+            break
+    print(part_details)
+    return render_template("modify_part_template.html", **part_details)
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)

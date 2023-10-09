@@ -1,6 +1,6 @@
 [
     {
-        "SKU": "23",
+        "SKU": "255",
         "Name": "Capacitor",
         "Value": "31.6k",
         "Footprint": "0402",
@@ -14,7 +14,7 @@
             "smollboi"
         ],
         "Price": "0.0064",
-        "Warning Stock": "10",
+        "Warning_Stock": "10",
         "Source": "https://www.digikey.com/en/products/detail/samsung-electro-mechanics/CL05A104KA5NNNC/3886701",
         "Datasheet": "https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/503/CL05A104KA5NNNC.pdf",
         "History": [
@@ -44,7 +44,367 @@
             "smollboi"
         ],
         "Price": "0.00560",
-        "Warning Stock": "10",
+        "Warning_Stock": "10",
+        "Source": "https://www.digikey.com/en/products/detail/stackpole-electronics-inc/RMCF0402ZT0R00/1756905",
+        "Datasheet": "https://www.seielect.com/catalog/sei-rmcf_rmcp.pdf",
+        "History": [
+            {
+                "12/2/2023": "100"
+            },
+            {
+                "14/2/2023": "98"
+            },
+            {
+                "30/6/2023": "87"
+            }
+        ]
+    },
+    {
+        "SKU": "13",
+        "Name": "Resistor",
+        "Value": "0",
+        "Footprint": "0402",
+        "Quantity": "23",
+        "Rating": "1/16W",
+        "Group": "Passives",
+        "Location": "Grid",
+        "Tags": [
+            "smd",
+            "idk",
+            "smollboi"
+        ],
+        "Price": "0.00560",
+        "Warning_Stock": "10",
+        "Source": "https://www.digikey.com/en/products/detail/stackpole-electronics-inc/RMCF0402ZT0R00/1756905",
+        "Datasheet": "https://www.seielect.com/catalog/sei-rmcf_rmcp.pdf",
+        "History": [
+            {
+                "12/2/2023": "100"
+            },
+            {
+                "14/2/2023": "98"
+            },
+            {
+                "30/6/2023": "87"
+            }
+        ]
+    },
+    {
+        "SKU": "14",
+        "Name": "Resistor",
+        "Value": "0",
+        "Footprint": "0402",
+        "Quantity": "23",
+        "Rating": "1/16W",
+        "Group": "Passives",
+        "Location": "Grid",
+        "Tags": [
+            "smd",
+            "idk",
+            "smollboi"
+        ],
+        "Price": "0.00560",
+        "Warning_Stock": "10",
+        "Source": "https://www.digikey.com/en/products/detail/stackpole-electronics-inc/RMCF0402ZT0R00/1756905",
+        "Datasheet": "https://www.seielect.com/catalog/sei-rmcf_rmcp.pdf",
+        "History": [
+            {
+                "12/2/2023": "100"
+            },
+            {
+                "14/2/2023": "98"
+            },
+            {
+                "30/6/2023": "87"
+            }
+        ]
+    },
+    {
+        "SKU": "15",
+        "Name": "Resistor",
+        "Value": "0",
+        "Footprint": "0402",
+        "Quantity": "23",
+        "Rating": "1/16W",
+        "Group": "Passives",
+        "Location": "Grid",
+        "Tags": [
+            "smd",
+            "idk",
+            "smollboi"
+        ],
+        "Price": "0.00560",
+        "Warning_Stock": "10",
+        "Source": "https://www.digikey.com/en/products/detail/stackpole-electronics-inc/RMCF0402ZT0R00/1756905",
+        "Datasheet": "https://www.seielect.com/catalog/sei-rmcf_rmcp.pdf",
+        "History": [
+            {
+                "12/2/2023": "100"
+            },
+            {
+                "14/2/2023": "98"
+            },
+            {
+                "30/6/2023": "87"
+            }
+        ]
+    },
+    {
+        "SKU": "16",
+        "Name": "Resistor",
+        "Value": "0",
+        "Footprint": "0402",
+        "Quantity": "23",
+        "Rating": "1/16W",
+        "Group": "Passives",
+        "Location": "Grid",
+        "Tags": [
+            "smd",
+            "idk",
+            "smollboi"
+        ],
+        "Price": "0.00560",
+        "Warning_Stock": "10",
+        "Source": "https://www.digikey.com/en/products/detail/stackpole-electronics-inc/RMCF0402ZT0R00/1756905",
+        "Datasheet": "https://www.seielect.com/catalog/sei-rmcf_rmcp.pdf",
+        "History": [
+            {
+                "12/2/2023": "100"
+            },
+            {
+                "14/2/2023": "98"
+            },
+            {
+                "30/6/2023": "87"
+            }
+        ]
+    },
+    {
+        "SKU": "17",
+        "Name": "Resistor",
+        "Value": "0",
+        "Footprint": "0402",
+        "Quantity": "23",
+        "Rating": "1/16W",
+        "Group": "Passives",
+        "Location": "Grid",
+        "Tags": [
+            "smd",
+            "idk",
+            "smollboi"
+        ],
+        "Price": "0.00560",
+        "Warning_Stock": "10",
+        "Source": "https://www.digikey.com/en/products/detail/stackpole-electronics-inc/RMCF0402ZT0R00/1756905",
+        "Datasheet": "https://www.seielect.com/catalog/sei-rmcf_rmcp.pdf",
+        "History": [
+            {
+                "12/2/2023": "100"
+            },
+            {
+                "14/2/2023": "98"
+            },
+            {
+                "30/6/2023": "87"
+            }
+        ]
+    },
+    {
+        "SKU": "18",
+        "Name": "Resistor",
+        "Value": "0",
+        "Footprint": "0402",
+        "Quantity": "23",
+        "Rating": "1/16W",
+        "Group": "Passives",
+        "Location": "Grid",
+        "Tags": [
+            "smd",
+            "idk",
+            "smollboi"
+        ],
+        "Price": "0.00560",
+        "Warning_Stock": "10",
+        "Source": "https://www.digikey.com/en/products/detail/stackpole-electronics-inc/RMCF0402ZT0R00/1756905",
+        "Datasheet": "https://www.seielect.com/catalog/sei-rmcf_rmcp.pdf",
+        "History": [
+            {
+                "12/2/2023": "100"
+            },
+            {
+                "14/2/2023": "98"
+            },
+            {
+                "30/6/2023": "87"
+            }
+        ]
+    },
+    {
+        "SKU": "19",
+        "Name": "Resistor",
+        "Value": "0",
+        "Footprint": "0402",
+        "Quantity": "23",
+        "Rating": "1/16W",
+        "Group": "Passives",
+        "Location": "Grid",
+        "Tags": [
+            "smd",
+            "idk",
+            "smollboi"
+        ],
+        "Price": "0.00560",
+        "Warning_Stock": "10",
+        "Source": "https://www.digikey.com/en/products/detail/stackpole-electronics-inc/RMCF0402ZT0R00/1756905",
+        "Datasheet": "https://www.seielect.com/catalog/sei-rmcf_rmcp.pdf",
+        "History": [
+            {
+                "12/2/2023": "100"
+            },
+            {
+                "14/2/2023": "98"
+            },
+            {
+                "30/6/2023": "87"
+            }
+        ]
+    },
+    {
+        "SKU": "20",
+        "Name": "Resistor",
+        "Value": "0",
+        "Footprint": "0402",
+        "Quantity": "23",
+        "Rating": "1/16W",
+        "Group": "Passives",
+        "Location": "Grid",
+        "Tags": [
+            "smd",
+            "idk",
+            "smollboi"
+        ],
+        "Price": "0.00560",
+        "Warning_Stock": "10",
+        "Source": "https://www.digikey.com/en/products/detail/stackpole-electronics-inc/RMCF0402ZT0R00/1756905",
+        "Datasheet": "https://www.seielect.com/catalog/sei-rmcf_rmcp.pdf",
+        "History": [
+            {
+                "12/2/2023": "100"
+            },
+            {
+                "14/2/2023": "98"
+            },
+            {
+                "30/6/2023": "87"
+            }
+        ]
+    },
+    {
+        "SKU": "21",
+        "Name": "Resistor",
+        "Value": "0",
+        "Footprint": "0402",
+        "Quantity": "23",
+        "Rating": "1/16W",
+        "Group": "Passives",
+        "Location": "Grid",
+        "Tags": [
+            "smd",
+            "idk",
+            "smollboi"
+        ],
+        "Price": "0.00560",
+        "Warning_Stock": "10",
+        "Source": "https://www.digikey.com/en/products/detail/stackpole-electronics-inc/RMCF0402ZT0R00/1756905",
+        "Datasheet": "https://www.seielect.com/catalog/sei-rmcf_rmcp.pdf",
+        "History": [
+            {
+                "12/2/2023": "100"
+            },
+            {
+                "14/2/2023": "98"
+            },
+            {
+                "30/6/2023": "87"
+            }
+        ]
+    },
+    {
+        "SKU": "22",
+        "Name": "Resistor",
+        "Value": "0",
+        "Footprint": "0402",
+        "Quantity": "23",
+        "Rating": "1/16W",
+        "Group": "Passives",
+        "Location": "Grid",
+        "Tags": [
+            "smd",
+            "idk",
+            "smollboi"
+        ],
+        "Price": "0.00560",
+        "Warning_Stock": "10",
+        "Source": "https://www.digikey.com/en/products/detail/stackpole-electronics-inc/RMCF0402ZT0R00/1756905",
+        "Datasheet": "https://www.seielect.com/catalog/sei-rmcf_rmcp.pdf",
+        "History": [
+            {
+                "12/2/2023": "100"
+            },
+            {
+                "14/2/2023": "98"
+            },
+            {
+                "30/6/2023": "87"
+            }
+        ]
+    },
+    {
+        "SKU": "23",
+        "Name": "Resistor",
+        "Value": "0",
+        "Footprint": "0402",
+        "Quantity": "23",
+        "Rating": "1/16W",
+        "Group": "Passives",
+        "Location": "Grid",
+        "Tags": [
+            "smd",
+            "idk",
+            "smollboi"
+        ],
+        "Price": "0.00560",
+        "Warning_Stock": "10",
+        "Source": "https://www.digikey.com/en/products/detail/stackpole-electronics-inc/RMCF0402ZT0R00/1756905",
+        "Datasheet": "https://www.seielect.com/catalog/sei-rmcf_rmcp.pdf",
+        "History": [
+            {
+                "12/2/2023": "100"
+            },
+            {
+                "14/2/2023": "98"
+            },
+            {
+                "30/6/2023": "87"
+            }
+        ]
+    },
+    {
+        "SKU": "24",
+        "Name": "Resistor",
+        "Value": "0",
+        "Footprint": "0402",
+        "Quantity": "23",
+        "Rating": "1/16W",
+        "Group": "Passives",
+        "Location": "Grid",
+        "Tags": [
+            "smd",
+            "idk",
+            "smollboi"
+        ],
+        "Price": "0.00560",
+        "Warning_Stock": "10",
         "Source": "https://www.digikey.com/en/products/detail/stackpole-electronics-inc/RMCF0402ZT0R00/1756905",
         "Datasheet": "https://www.seielect.com/catalog/sei-rmcf_rmcp.pdf",
         "History": [

@@ -15,6 +15,7 @@ body{
   font-family: 'Roboto Mono', monospace;
   display: flex;
   transition: background-color 0.1s ease;
+  transition: height 0.5s ease;
 }
 
 #vertical-menu{
@@ -89,8 +90,9 @@ body{
 
 div.mainContent > div.container-fluid > .row{
   height: fit-content;
-  margin-right: 50px;
-  margin-left: 50px;
+  
+  margin-right: 40px;
+  margin-left: 40px;
 }
 
 #page_title_row{
@@ -188,17 +190,21 @@ select:focus{
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid var(--hightlight_dark);
-  padding:5px 0px;
+  padding:5px 10px;
+  height: auto;
 }
 
-span {
+#column-titles span,span {
   flex:1;
   margin:0px;
   height:fit-content;
   display: flex;
   text-align: left;
+  padding:0px;
 }
-
+.table-row span{
+  padding:0px;
+}
 .part-image{
   height: 35px;
   margin-left: 30px;
@@ -264,22 +270,36 @@ a img{
 }
 
 
-
 #table-details-row{
+  padding:0px;
   background-color:var(--dominant_2);
   border-radius: 20px;
-  margin-right: 30px;
-  margin-left: 30px;
+  /* margin-right: 30px;
+  margin-left: 30px; */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  transition: height 1s ease;
+  height:500px;
+}
+
+#table-details-row > .container{
+  padding:0px;
+  width:100%;
+  margin:0px;
+  max-width: 100%;
 }
 
 #table-details-row  div.table-row{
-  margin-right:9px;
-  margin-left:9px;
+  margin-right:0px;
+  margin-left: 0px;
+}
+
+.part-edit{
+  margin-bottom: 10px;
 }
 
 #table-details-row > .container > *:not(:first-child){ 
   margin:2px 20px;
+  margin-bottom:20px;
 }
 
 #table-details-row a{ /*always show the buttons*/
@@ -493,4 +513,7 @@ margin:10px;
   color:white;
 }
 
+.part_row{
+  transition: height 0.5s ease;
+}
 

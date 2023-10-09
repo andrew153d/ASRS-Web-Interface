@@ -54,6 +54,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
+function removeNonNumber(inputString) {
+  // Use a regular expression to match non-numeric characters and replace them with an empty string
+  return inputString.replace(/[^0-9]/g, '');
+}
+
 function loadInventory() {
   var contentContainer = document.getElementById("mainContentContainer");
   fetch('inventory.html')
@@ -88,29 +93,36 @@ function getPartRows() {
     });
 }
 
-function partRowClicked(clickedDiv) {
+function partRowClicked(clickedDivSKU) {
   // Find the element with class "SKU_box" inside the clicked div
+  const clickedDiv = document.getElementById(clickedDivSKU);
   const skuBox = clickedDiv.querySelector('.SKU_box');
-  const skuText = skuBox.textContent;
-  
-  fetch('/getModifyPartBox')
-  .then(response => response.text())
-  .then(html => {
+  const skuText = removeNonNumber(skuBox.textContent);
+  console.log(skuText);
+  fetch('/getModifyPartBox', {
 
-    // Get all child elements with the class "table-row"
-    var tableRows = contentContainer.getElementsByClassName("table-row");
+    method: 'POST',
 
-    // Convert the HTMLCollection to an array
-    var tableRowsArray = Array.from(tableRows);
-    console.log(tableRowsArray);
-    // Loop through the array and remove each element
-    tableRowsArray.forEach(function (element) {
-     
-      element.remove();
-    });
+    body: JSON.stringify({
 
-    contentContainer.innerHTML += html;
+      'partID': String(skuText)
 
-  });
+    }),
 
+    headers: {
+      'Content-Type': 'application/json',
+    }
+  })
+    .then(response => response.text())
+
+    .then(html => {
+      //console.log(html);
+      const box_to_replace = document.getElementById(skuText);
+      box_to_replace.innerHTML=html;
+    })
+}
+
+function savePart(element){
+  console.log("hi");
+  loadInventory();
 }
