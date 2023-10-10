@@ -95,10 +95,10 @@ function getPartRows() {
 
 function partRowClicked(clickedDivSKU) {
   // Find the element with class "SKU_box" inside the clicked div
+  console.log(clickedDivSKU);
   const clickedDiv = document.getElementById(clickedDivSKU);
-  const skuBox = clickedDiv.querySelector('.SKU_box');
-  const skuText = removeNonNumber(skuBox.textContent);
-  console.log(skuText);
+  clickedDiv.classList.add("table-details-row-selected");
+  return;
   fetch('/getModifyPartBox', {
 
     method: 'POST',
@@ -117,12 +117,14 @@ function partRowClicked(clickedDivSKU) {
 
     .then(html => {
       //console.log(html);
-      const box_to_replace = document.getElementById(skuText);
-      box_to_replace.innerHTML=html;
+      //const box_to_replace = document.getElementById(skuText);
+      //box_to_replace.innerHTML=html;
     })
 }
 
-function savePart(element){
-  console.log("hi");
-  loadInventory();
+function savePart(clickedDivSKU){
+  console.log(clickedDivSKU);
+  const clickedDiv = document.getElementById(clickedDivSKU);
+  clickedDiv.classList.remove("table-details-row-selected");
+  //loadInventory();
 }

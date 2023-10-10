@@ -190,7 +190,7 @@ select:focus{
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid var(--hightlight_dark);
-  padding:5px 10px;
+  padding:5px 0px;
   height: auto;
 }
 
@@ -221,6 +221,7 @@ input[type="checkbox"]{
   display: flex;
   justify-content: space-between;
   align-items:center;
+  padding:10px;
 }
 
 a {
@@ -243,8 +244,7 @@ a {
   outline:none;
   text-decoration: none;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  transition: opacity 1s ease;
-  transition: background-color 0.3s ease;
+  transition: opacity 0.2s ease, background-color 0.3s ease-in;
 }
 
 .table-row:hover a
@@ -270,25 +270,34 @@ a img{
 }
 
 
-#table-details-row{
+.table-details-row{
   padding:0px;
-  background-color:var(--dominant_2);
-  border-radius: 20px;
+  margin:0px 50px;
+  border-radius: 0px;
   /* margin-right: 30px;
   margin-left: 30px; */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  transition: height 1s ease;
-  height:500px;
+  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); */
+  background-color:var(--dominant_1);
+  transition: height 0.4s ease, background-color 0.4s ease,border-radius 0.4s ease-out;
+  height:46px;
+  overflow: hidden;
 }
 
-#table-details-row > .container{
+.table-details-row-selected{
+  background-color:var(--dominant_2);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  height:500px;
+  border-radius: 20px;
+}
+
+.table-details-row > .container{
   padding:0px;
   width:100%;
   margin:0px;
   max-width: 100%;
 }
 
-#table-details-row  div.table-row{
+.table-details-row  div.table-row{
   margin-right:0px;
   margin-left: 0px;
 }
@@ -297,13 +306,9 @@ a img{
   margin-bottom: 10px;
 }
 
-#table-details-row > .container > *:not(:first-child){ 
+.table-details-row > .container > *:not(:first-child){ 
   margin:2px 20px;
   margin-bottom:20px;
-}
-
-#table-details-row a{ /*always show the buttons*/
-opacity:1;
 }
 
 .details-image{

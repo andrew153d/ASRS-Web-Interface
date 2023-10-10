@@ -1,54 +1,157 @@
-<div class="row part_row" id="{{SKU}}">
-  <div class="table-row">
-    <span>
-      <input type="checkbox" class="part-checkbox">
-      <img src="../static/images/0402.jpg" alt="logo" class="part-image" />
-    </span>
-    <span class="SKU_box">
-      {{SKU}}
-    </span>
-    <span>
-      {{Name}}
-    </span>
-    <span>
-      {{Value}}
-    </span>
-    <span>
-      {{Footprint}}
-    </span>
-    <span>
-      {{Quantity}}
-    </span>
-    <span>
-      {{Rating}}
-    </span>
-    <span>
-      {{Group}}
-    </span>
-    <span>
-      {{Location}}
-    </span>
-    <span class="part-button-container">
-      <div>
-        <a onclick="partRowClicked({{SKU}})" target="_blank">
-          <img src="../static/images/icons/edit.png" alt="launch" />
-        </a>
+
+  <div class="table-details-row" id="{{SKU}}">
+    <div class="container">
+      <div class="row table-row">
+        <span>
+          <input type="checkbox" class="part-checkbox">
+          <img src="../static/images/0402.jpg" alt="logo" class="part-image" />
+        </span>
+        <span>
+          {{SKU}}
+        </span>
+        <span>
+          {{Name}}
+        </span>
+        <span>
+          {{Value}}
+        </span>
+        <span>
+          {{Footprint}}
+        </span>
+        <span>
+          {{Quantity}}
+        </span>
+        <span>
+          {{Rating}}
+        </span>
+        <span>
+          {{Group}}
+        </span>
+        <span>
+          Location
+        </span>
+        <span class="part-button-container">
+          <div>
+            <a onclick="partRowClicked({{SKU}})" target="_blank">
+              <img src="../static/images/icons/edit.png" alt="launch" />
+            </a>
+          </div>
+          <div>
+            <a href="{{Source}}" target="_blank">
+              <img src="../static/images/icons/launch.png" alt="launch" />
+            </a>
+          </div>
+          <div>
+            <a href="{{Datasheet}}" target="_blank">
+              <img src="../static/images/icons/datasheet.png" alt="launch" />
+            </a>
+          </div>
+          <div>
+            <a onclick="deletePart(this)">
+              <img src="../static/images/icons/trash.png" alt="launch" />
+            </a>
+          </div>
+        </span>
       </div>
-      <div>
-        <a href="{{Source}}" target="_blank">
-          <img src="../static/images/icons/launch.png" alt="launch" />
-        </a>
+      <div class="row part-edit">
+        <div class="col-md-auto">
+          <img src="../static/images/0402.jpg" alt="logo" class="details-image" />
+          <div class="row">
+            add image
+          </div>
+        </div>
+        <div class="col">
+          <div class="row">
+            <div class="col-auto data-container">
+              <label class="data-label" for="object_43_Name">Name</label>
+              <input class="name-width data-entry" type="text" name="textbox" id="object_43_Name"
+                value="{{Name}}">
+            </div>
+            <div class="col-auto data-container">
+              <label class="data-label" for="object_43_Value">Value</label>
+              <input class="value-width data-entry" type="text" name="textbox" id="object_43_Value" value="{{Value}}">
+            </div>
+            <div class="col-auto data-container">
+              <label class="data-label" for="object_43_Footprint">Footprint</label>
+              <input class="footprint-width data-entry" type="text" name="textbox" id="object_43_Footprint"
+                value="{{Footprint}}">
+            </div>
+            <div class="col-auto data-container">
+              <label class="data-label" for="object_43_Quantity">Quantity</label>
+              <input class="quantity-width data-entry" type="text" name="textbox" id="object_43_Quantity"
+                value="{{Quantity}}">
+            </div>
+            <div class="col-auto data-container">
+              <label class="data-label" for="object_43_Rating">Rating</label>
+              <input class="rating-width data-entry" type="text" name="textbox" id="object_43_Rating" value="{{Rating}}">
+            </div>
+            <div class="col-auto data-container">
+              <label class="data-label" for="object_43_group">Group</label>
+              <!-- <input class= "group-width data-entry" type="text" name="textbox" id="object_43_group" value="none"> -->
+              <select class="group-width data-entry" id="group-dropdown" name="fruit">
+                <option value="apple">in stock</option>
+                <option value="banana">low stock</option>
+                <option value="cherry">price</option>
+                <option value="orange">oldest</option>
+                <option value="strawberry">newest</option>
+              </select>
+            </div>
+            <div class="col-auto data-container">
+              <label class="data-label" for="object_43_location">Location</label>
+              <input class="location-width data-entry" type="text" name="textbox" id="object_43_location"
+                value="{{Location}}">
+            </div>
+            <div class="col-auto data-container">
+              <label class="data-label" for="object_43_tags">Tags</label>
+              <input class="tags-width data-entry" type="text" name="textbox" id="object_43_tags" value="{{Tags}}">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-auto data-container">
+              <label class="data-label" for="object_43_sku">SKU</label>
+              <input class="sku-width data-entry" type="text" name="textbox" id="object_43_sku" value="{{SKU}}">
+            </div>
+            <div class="col-auto data-container">
+              <label class="data-label" for="object_43_price">Price</label>
+              <input class="price-width data-entry" type="text" name="textbox" id="object_43_price"
+                value="{{SKU}}">
+            </div>
+            <div class="col-auto data-container">
+              <label class="data-label" for="object_43_warningstock">Warning Stock</label>
+              <input class="price-width data-entry" type="text" name="textbox" id="object_43_warningstock"
+                value="{{Warning_Stock}}">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-6 col-md-12">
+              <div class="row">
+                <div class="col-auto data-container">
+                  <label class="data-label" for="object_43_warningstock">Source</label>
+                  <input class="source-width data-entry" type="text" name="textbox" id="object_43_source"
+                    value="{{Source}}">
+                </div>
+                <div class="col-auto data-container">
+                  <label class="data-label" for="object_43_datasheet">Datasheet</label>
+                  <input class="datasheet-width data-entry" type="text" name="textbox" id="object_43_datasheet"
+                    value="{{Source}}">
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-6 col-lg-12 col-md-12">
+              <div id="graph-container">
+                <canvas id="myChart">
+                </canvas>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <button class="float-end save-button" onclick="savePart({{SKU}})">
+                Save
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
-      <div>
-        <a href="{{Datasheet}}" target="_blank">
-          <img src="../static/images/icons/datasheet.png" alt="launch" />
-        </a>
-      </div>
-      <div>
-        <a onclick="deletePart(this)">
-          <img src="../static/images/icons/trash.png" alt="launch" />
-        </a>
-      </div>
-    </span>
+    </div>
   </div>
-</div>
