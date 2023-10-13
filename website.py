@@ -341,8 +341,8 @@ def newPart():
         "Tags": "",
         "Price": "",
         "Warning_Stock": "",
-        "Source": "",
-        "Datasheet": "",
+        "Source": "empty",
+        "Datasheet": "empty",
         "History": []
         }
 

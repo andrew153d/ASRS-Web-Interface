@@ -70,23 +70,23 @@ function loadInventory() {
 }
 
 function getPartRows() {
-  var contentContainer = document.getElementById("mainContentContainer");
+  var contentContainer = document.getElementById("row-container");
 
   fetch('/partsList')
     .then(response => response.text())
     .then(html => {
 
-      // Get all child elements with the class "table-row"
-      var tableRows = contentContainer.getElementsByClassName("table-details-row");
+      // // Get all child elements with the class "table-row"
+      // var tableRows = contentContainer.getElementsByClassName("table-details-row");
 
-      // Convert the HTMLCollection to an array
-      var tableRowsArray = Array.from(tableRows);
-      console.log(tableRowsArray);
-      // Loop through the array and remove each element
-      tableRowsArray.forEach(function (element) {
+      // // Convert the HTMLCollection to an array
+      // var tableRowsArray = Array.from(tableRows);
+      // console.log(tableRowsArray);
+      // // Loop through the array and remove each element
+      // tableRowsArray.forEach(function (element) {
 
-        element.remove();
-      });
+      //   element.remove();
+      // });
 
       contentContainer.innerHTML += html;
 
@@ -186,12 +186,24 @@ function addPart() {
   fetch('/newPart')
     .then(response => response.text())
     .then(html => {
-
       console.log(html);
-      const element1 = document.getElementById("column-titles");
-      addHtmlAfterElement(html, "column-titles");
+      const container = document.getElementById("row-container");
+
+      // Create a DOMParser to parse the HTML string into a DOM element
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(html, 'text/html');
+      
+      // Get the first element from the parsed document
+      const elementToInsert = doc.body.firstChild;
+
+      // Insert the element as the first child of the container
+      if (elementToInsert) {
+        container.insertBefore(elementToInsert, container.firstChild);
+      }
     });
 }
+
+
 
 function deletePart(sku) {
   var element = document.getElementById(sku);
@@ -229,17 +241,8 @@ function search() {
     .then(response => response.text())
 
     .then(html => {
-      var contentContainer = document.getElementById("mainContentContainer");
-      var tableRows = contentContainer.getElementsByClassName("table-details-row");
+      var contentContainer = document.getElementById("row-container");
 
-      // Convert the HTMLCollection to an array
-      var tableRowsArray = Array.from(tableRows);
-      // Loop through the array and remove each element
-      tableRowsArray.forEach(function (element) {
-        element.remove();
-      });
-
-      contentContainer.innerHTML += html;
-      document.getElementById("search_bar").value=search_bar.value;
+      contentContainer.innerHTML = html;
     })
 }
