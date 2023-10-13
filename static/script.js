@@ -77,14 +77,14 @@ function getPartRows() {
     .then(html => {
 
       // Get all child elements with the class "table-row"
-      var tableRows = contentContainer.getElementsByClassName("table-row");
+      var tableRows = contentContainer.getElementsByClassName("table-details-row");
 
       // Convert the HTMLCollection to an array
       var tableRowsArray = Array.from(tableRows);
       console.log(tableRowsArray);
       // Loop through the array and remove each element
       tableRowsArray.forEach(function (element) {
-       
+
         element.remove();
       });
 
@@ -122,9 +122,124 @@ function partRowClicked(clickedDivSKU) {
     })
 }
 
-function savePart(clickedDivSKU){
-  console.log(clickedDivSKU);
+function savePart(clickedDivSKU) {
+  //console.log(clickedDivSKU);
   const clickedDiv = document.getElementById(clickedDivSKU);
   clickedDiv.classList.remove("table-details-row-selected");
-  //loadInventory();
+
+  const part = {
+    "SKU": "-1",
+    "Name": "",
+    "Value": "",
+    "Footprint": "",
+    "Quantity": "",
+    "Rating": "",
+    "Group": "",
+    "Location": "",
+    "Tags": "",
+    "Price": "",
+    "Warning_Stock": "",
+    "Source": "",
+    "Datasheet": ""
+  };
+
+  for (const key in part) {
+    var new_value_element = document.getElementById(clickedDivSKU + "_" + key);
+    console.log(key);
+    part[key] = new_value_element.value;
+    var elementToUpdate = document.getElementById(clickedDivSKU + "_" + key + "_span");
+    if (elementToUpdate) {
+      elementToUpdate.innerHTML = part[key];
+    }
+  }
+
+
+
+  console.log(part);
+
+  fetch('/savePart', {
+
+    method: 'POST',
+
+    body: JSON.stringify(part),
+
+    headers: {
+      'Content-Type': 'application/json',
+    }
+  })
+    .then(response => response.text())
+
+    .then(html => {
+
+    })
+}
+
+
+function addHtmlAfterElement(htmlString, elementId) {
+  const element = document.getElementById(elementId);
+  if (element) {
+    element.insertAdjacentHTML('afterend', htmlString);
+  }
+}
+
+function addPart() {
+  fetch('/newPart')
+    .then(response => response.text())
+    .then(html => {
+
+      console.log(html);
+      const element1 = document.getElementById("column-titles");
+      addHtmlAfterElement(html, "column-titles");
+    });
+}
+
+function deletePart(sku) {
+  var element = document.getElementById(sku);
+  element.remove();
+  fetch('/deletePart', {
+
+    method: 'POST',
+
+    body: JSON.stringify({ "SKU": sku + "" }),
+
+    headers: {
+      'Content-Type': 'application/json',
+    }
+  })
+    .then(response => response.text())
+
+    .then(html => {
+
+    })
+}
+
+function search() {
+  var search_bar = document.getElementById("search_bar");
+
+  fetch('/search', {
+
+    method: 'POST',
+
+    body: JSON.stringify({ "terms": [search_bar.value] }),
+
+    headers: {
+      'Content-Type': 'application/json',
+    }
+  })
+    .then(response => response.text())
+
+    .then(html => {
+      var contentContainer = document.getElementById("mainContentContainer");
+      var tableRows = contentContainer.getElementsByClassName("table-details-row");
+
+      // Convert the HTMLCollection to an array
+      var tableRowsArray = Array.from(tableRows);
+      // Loop through the array and remove each element
+      tableRowsArray.forEach(function (element) {
+        element.remove();
+      });
+
+      contentContainer.innerHTML += html;
+      document.getElementById("search_bar").value=search_bar.value;
+    })
 }

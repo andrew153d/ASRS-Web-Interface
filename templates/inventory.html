@@ -1,7 +1,7 @@
 <div class="row" id="page_title_row">
     <h1 class="col-3 fixed-width">inventory</h1>
     <div class="col-8 stretch-width" id="search_container">
-      <input type="text" name="textbox" id="search_bar" value="search">
+      <input type="text" name="textbox" id="search_bar" value="search" on="search()">
     </div>
   </div>
   <div class="row" id="button-row">
@@ -24,7 +24,7 @@
     <div class="col-6">
     </div>
     <div class="col-2">
-      <button>
+      <button onclick="addPart()">
         + part
       </button>
     </div>

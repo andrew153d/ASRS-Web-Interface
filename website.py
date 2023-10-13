@@ -256,10 +256,21 @@ def remove_non_numbers(input_string):
     # Use regular expression to remove all non-digit characters
     return re.sub(r'[^0-9]', '', input_string)
 
+def getPart(sku):
+    try:
+        with open("parts_store.json", "r") as json_file:
+            part_data = json.load(json_file)
+            for part in part_data:
+                if part.get("SKU") == sku:
+                    return part
+    except FileNotFoundError:
+        # Handle the case where the file doesn't exist
+        pass
+
+    return {}  # Return an empty dictionary if the part doesn't exist
 
 @app.route("/inventory.html")
 def showInventoryPage():
-    print("returning inventory")
     return render_template("inventory.html")
 
 @app.route("/partsList")
@@ -269,13 +280,13 @@ def showPartsList():
     contentString = ""
     for part in data:
         #print(part)
-        print(type(part))
+        #print(type(part))
         contentString+=render_template("part_template.html", **part)
     return contentString
 
-@app.route("/getModifyPartBox", methods=["POST"])
+@app.route("/getModifyPartBox", methods=["POST"]) 
 def getModifyPartBox():
-    print(type(request.get_json()))
+    # print(type(request.get_json()))
     json_data = request.get_json()
     print(remove_non_numbers(json_data["partID"]))
     with open("parts_store.json", "r") as json_file:
@@ -291,6 +302,103 @@ def getModifyPartBox():
             break
     print(part_details)
     return render_template("modify_part_template.html", **part_details)
+
+@app.route("/savePart", methods=["POST"])
+def savePart():
+    json_data = request.get_json()
+    print(json_data)
+    with open("parts_store.json", "r") as json_file:
+        part_data = json.load(json_file)
+    newPart={}
+    for part in part_data:
+        if part["SKU"] == json_data["SKU"]:
+            # Update the existing part dictionary with the new data
+            part.update(json_data)
+            newPart=part
+            print("storing")
+            break
+    
+    with open("parts_store.json", "w") as json_file:
+        json.dump(part_data, json_file, indent=4)
+
+
+    return render_template("part_template.html", **newPart)
+
+@app.route("/newPart")
+def newPart():
+    with open("parts_store.json", "r") as json_file:
+        part_data = json.load(json_file)
+
+    newPart = {
+        "SKU": "-1",
+        "Name":"",
+        "Value": "",
+        "Footprint": "",
+        "Quantity": "",
+        "Rating": "",
+        "Group": "",
+        "Location": "",
+        "Tags": "",
+        "Price": "",
+        "Warning_Stock": "",
+        "Source": "",
+        "Datasheet": "",
+        "History": []
+        }
+
+    for i in range(1, len(part_data) + 5):
+        if getPart(str(i)):
+            pass
+        else:
+            newPart["SKU"] = str(i)
+            part_data.append(newPart)  # Add the new part to the part_data list
+            break
+
+    with open("parts_store.json", "w") as json_file:
+        json.dump(part_data, json_file, indent=4)
+
+    return render_template("part_template.html", **newPart)
+
+@app.route("/deletePart", methods=["POST"])
+def deletePart():
+    json_data = request.get_json()
+    sku_to_delete = json_data["SKU"]  # Assuming you send the SKU to delete in the JSON request
+    with open("parts_store.json", "r") as json_file:
+        part_data = json.load(json_file)
+    print(type(sku_to_delete))
+    for part in part_data:
+        if part["SKU"] == sku_to_delete:
+            part_data.remove(part)
+            break  # We found and deleted the part, so exit the loop
+
+    with open("parts_store.json", "w") as json_file:
+        json.dump(part_data, json_file, indent=4)
+    return "Part deleted successfully"
+
+@app.route("/search", methods=["POST"])
+def deletePdart():
+    json_data = request.get_json()
+    term_list = json_data["terms"]
+    
+    
+    with open("parts_store.json", "r") as json_file:
+        part_data = json.load(json_file)
+    
+    matching_parts = []
+    for term in term_list:
+        for part in part_data:
+            values_list = [str(value) for value in part.values()]
+            values_string = " ".join(values_list)
+            if term.lower() in values_string.replace(" ", "").replace("\n", "").lower():
+                matching_parts.append(part)
+
+                
+    
+    contentString = " "
+    for part in matching_parts:
+        contentString+=render_template("part_template.html", **part)
+    
+    return contentString
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)
