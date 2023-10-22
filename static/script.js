@@ -128,17 +128,17 @@ function savePart(clickedDivSKU) {
   clickedDiv.classList.remove("table-details-row-selected");
 
   const part = {
-    "SKU": "-1",
+    "SKU": -1,
     "Name": "",
     "Value": "",
     "Footprint": "",
-    "Quantity": "",
+    "Quantity": 0,
     "Rating": "",
     "Group": "",
     "Location": "",
     "Tags": "",
-    "Price": "",
-    "Warning_Stock": "",
+    "Price": 0,
+    "Warning_Stock": 0,
     "Source": "",
     "Datasheet": ""
   };
@@ -146,7 +146,15 @@ function savePart(clickedDivSKU) {
   for (const key in part) {
     var new_value_element = document.getElementById(clickedDivSKU + "_" + key);
     console.log(key);
-    part[key] = new_value_element.value;
+    var convertedValue = parseInt(new_value_element.value);
+
+    if (!isNaN(convertedValue)) {
+        // If the conversion is successful, assign the integer value
+        part[key] = convertedValue;
+    } else {
+        // If the conversion fails, keep the original value
+        part[key] = new_value_element.value;
+    }
     var elementToUpdate = document.getElementById(clickedDivSKU + "_" + key + "_span");
     if (elementToUpdate) {
       elementToUpdate.innerHTML = part[key];
@@ -186,7 +194,7 @@ function addPart() {
   fetch('/newPart')
     .then(response => response.text())
     .then(html => {
-      console.log(html);
+      //console.log(html);
       const container = document.getElementById("row-container");
 
       // Create a DOMParser to parse the HTML string into a DOM element
@@ -233,6 +241,30 @@ function search() {
     method: 'POST',
 
     body: JSON.stringify({ "terms": [search_bar.value] }),
+
+    headers: {
+      'Content-Type': 'application/json',
+    }
+  })
+    .then(response => response.text())
+
+    .then(html => {
+      var contentContainer = document.getElementById("row-container");
+
+      contentContainer.innerHTML = html;
+    })
+}
+
+function sort(direction, field){
+  console.log(direction);
+  console.log(field);
+  var search_bar = document.getElementById("search_bar");
+
+  fetch('/filter', {
+
+    method: 'POST',
+
+    body: JSON.stringify([{ "field": field,"direction": direction}]),
 
     headers: {
       'Content-Type': 'application/json',

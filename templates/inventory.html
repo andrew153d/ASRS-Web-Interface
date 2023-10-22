@@ -1,44 +1,89 @@
 <div class="row" id="page_title_row">
     <h1 class="col-3 fixed-width">inventory</h1>
     <div class="col-8 stretch-width" id="search_container">
-      <input type="text" name="textbox" id="search_bar" value="search" oninput="search()">
+      <input type="text" name="textbox" id="search_bar" placeholder="search" oninput="search()">
     </div>
   </div>
-  <div class="row" id="button-row">
-    <div class="col-2">
+  <div class="d-flex flex-row" id="button-row">
+    <div class="p-2">
+        <img src="../static/images/icons/filter.png" alt="filter" />
+    </div>
+    <div class="p-2">
       <button>
-        <select id="filter-dropdown" name="fruit">
-          <option value="apple">in stock</option>
-          <option value="banana">low stock</option>
-          <option value="cherry">price</option>
-          <option value="orange">oldest</option>
-          <option value="strawberry">newest</option>
-        </select>
+        + sort
       </button>
     </div>
-    <div class="col-2">
+    <div class="p-2">
       <button>
         + filter
       </button>
     </div>
     <div class="col-6">
     </div>
-    <div class="col-2">
+    <div class="p-2">
       <button onclick="addPart()">
         + part
       </button>
     </div>
   </div>
-  <div class="row sticky" id="column-titles">
-    <span> </span>
-    <span>#SKU</span>
-    <span>Name</span>
-    <span>Value</span>
-    <span>Footprint</span>
-    <span>Quantity</span>
-    <span>Rating</span>
-    <span>Group</span>
-    <span>Location</span>
+  <div class="row sticky" id="column-titles" style="text-align: center;">
+    <span> </span> 
+    <span class = "hstack">
+      <div>#SKU</div>
+      <div class="vstack arrow-container">
+        <img src="../static/images/icons/up.png" alt="Up Arrow" onclick="sort('descending','SKU')">
+        <img src="../static/images/icons/up.png" alt="Down Arrow" style="transform: rotate(180deg);" onclick="sort('ascending','SKU')">
+      </div>
+    </span>
+    <span class = "hstack">
+      <div>Name</div>
+      <div class="vstack arrow-container">
+        <img src="../static/images/icons/up.png" alt="Up Arrow" onclick="sort('descending','Name')">
+        <img src="../static/images/icons/up.png" alt="Down Arrow" style="transform: rotate(180deg);" onclick="sort('ascending','Name')">
+      </div>
+    </span>
+    <span class = "hstack">
+      <div>Value</div>
+      <div class="vstack arrow-container">
+        <img src="../static/images/icons/up.png" alt="Up Arrow" onclick="sort('descending','Name')">
+        <img src="../static/images/icons/up.png" alt="Down Arrow" style="transform: rotate(180deg);" onclick="sort('ascending','Name')">
+      </div>
+    </span>
+    <span class = "hstack">
+      <div>Footprint</div>
+      <div class="vstack arrow-container">
+        <img src="../static/images/icons/up.png" alt="Up Arrow" onclick="sort('descending','Footprint')">
+        <img src="../static/images/icons/up.png" alt="Down Arrow" style="transform: rotate(180deg);" onclick="sort('ascending','Footprint')">
+      </div>
+    </span>
+    <span class = "hstack">
+      <div>Quantity</div>
+      <div class="vstack arrow-container">
+        <img src="../static/images/icons/up.png" alt="Up Arrow" onclick="sort('descending','Quantity')">
+        <img src="../static/images/icons/up.png" alt="Down Arrow" style="transform: rotate(180deg);" onclick="sort('ascending','Quantity')">
+      </div>
+    </span>
+    <span class = "hstack">
+      <div>Rating</div>
+      <div class="vstack arrow-container">
+        <img src="../static/images/icons/up.png" alt="Up Arrow" onclick="sort('descending','Rating')">
+        <img src="../static/images/icons/up.png" alt="Down Arrow" style="transform: rotate(180deg);" onclick="sort('ascending','Rating')">
+      </div>
+    </span>
+    <span class = "hstack">
+      <div>Group</div>
+      <div class="vstack arrow-container">
+        <img src="../static/images/icons/up.png" alt="Up Arrow" onclick="sort('descending','Group')">
+        <img src="../static/images/icons/up.png" alt="Down Arrow" style="transform: rotate(180deg);" onclick="sort('ascending','Group')">
+      </div>
+    </span>
+    <span class = "hstack">
+      <div>Location</div>
+      <div class="vstack arrow-container">
+        <img src="../static/images/icons/up.png" alt="Up Arrow" onclick="sort('descending','Location')">
+        <img src="../static/images/icons/up.png" alt="Down Arrow" style="transform: rotate(180deg);" onclick="sort('ascending','Location')">
+      </div>
+    </span>
     <span> </span>
   </div>
   <div class="row " id="row-container"></div>

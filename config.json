@@ -1,4 +1,17 @@
 {
+    "filters":[
+        {"Quantity":"100",
+        "Direction":"above"},
+        {"Price":".2",
+        "Direction":"below"}
+    ]
+        
+    ,
+    "sort":[
+        {"field":"Warning_Stock",
+        "Direction":"above"}
+    ],
+
     "Columns": [
         {
             "Title": "ID",

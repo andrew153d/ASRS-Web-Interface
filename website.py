@@ -250,7 +250,22 @@ def index():
 #     return content
 
 
+def apply_filters_and_sort(parts_data, filters, sorting_criteria):
+    filtered_parts = parts_data
 
+
+    for filter_rule in filters:
+        key, value, direction = list(filter_rule.keys())[0], list(filter_rule.values())[0], list(filter_rule.values())[1]
+        if direction == "above":
+            filtered_parts = [part for part in filtered_parts if part.get(key) >= str(value)]
+        elif direction == "below":
+            filtered_parts = [part for part in filtered_parts if part.get(key) <= str(value)]
+
+    print(sorting_criteria[0]["field"])
+    print(sorting_criteria[0]["direction"])
+    sorted_parts = sorted(filtered_parts, key=lambda x: x.get(sorting_criteria[0]["field"]),reverse=(sorting_criteria[0]["direction"]=="ascending"))
+
+    return sorted_parts
 
 def remove_non_numbers(input_string):
     # Use regular expression to remove all non-digit characters
@@ -261,7 +276,7 @@ def getPart(sku):
         with open("parts_store.json", "r") as json_file:
             part_data = json.load(json_file)
             for part in part_data:
-                if part.get("SKU") == sku:
+                if part.get("SKU") == int(sku):
                     return part
     except FileNotFoundError:
         # Handle the case where the file doesn't exist
@@ -330,17 +345,17 @@ def newPart():
         part_data = json.load(json_file)
 
     newPart = {
-        "SKU": "-1",
+        "SKU": -1,
         "Name":"",
         "Value": "",
         "Footprint": "",
-        "Quantity": "",
+        "Quantity": 0,
         "Rating": "",
         "Group": "",
         "Location": "",
         "Tags": "",
-        "Price": "",
-        "Warning_Stock": "",
+        "Price": 0,
+        "Warning_Stock": 0,
         "Source": "empty",
         "Datasheet": "empty",
         "History": []
@@ -350,7 +365,7 @@ def newPart():
         if getPart(str(i)):
             pass
         else:
-            newPart["SKU"] = str(i)
+            newPart["SKU"] = i
             part_data.append(newPart)  # Add the new part to the part_data list
             break
 
@@ -399,6 +414,33 @@ def deletePdart():
         contentString+=render_template("part_template.html", **part)
     
     return contentString
+
+@app.route("/filter", methods=["POST"])
+def filterParts():
+    json_data = request.get_json()
+    print(json_data)
+    with open("parts_store.json", "r") as json_file:
+        part_data = json.load(json_file)
+        # Sample filters and sorting criteria from the JSON data
+    filters = [
+        # {"Quantity": 1, "Direction": "above"},
+        # {"Price": 0.9, "Direction": "below"}
+    ]
+
+    sorting_criteria = json_data
+    #     {"field": "SKU", "Direction": "ascending"}
+    # ]
+    # Applying the filters and sorting criteria
+    filtered_and_sorted_parts = apply_filters_and_sort(part_data, filters, sorting_criteria)
+
+    contentString = " "
+    for part in filtered_and_sorted_parts:
+        contentString+=render_template("part_template.html", **part)
+     
+    return contentString
+    
+
+
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)
